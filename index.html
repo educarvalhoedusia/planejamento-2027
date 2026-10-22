@@ -79,18 +79,24 @@ section{padding:44px 0 8px;scroll-margin-top:12px;min-width:0}
 .hero{padding:40px 0 8px}
 .hero h1{font-size:clamp(38px,6.4vw,76px);font-weight:800;letter-spacing:-.035em;max-width:14ch}
 .hero h1 em{font-style:normal;color:var(--accent)}
-.hero .lede{font-size:17px;max-width:64ch}
+.hero .lede{font-size:17px;max-width:66ch}
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;margin-top:30px;border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
 .kpi{padding:16px 18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 -1px -1px 0}
 .kpi b{display:block;font-family:var(--f-display);font-size:28px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.kpi b.neg{color:var(--bad)}
 .kpi span{font-size:12.5px;color:var(--ink2)}
 .callout{border-radius:10px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start;min-width:0}
 .callout.warn{background:var(--warn-soft);color:var(--ink)}
 .callout.info{background:var(--accent-soft);color:var(--ink)}
+.callout.bad{background:var(--bad-soft);color:var(--ink)}
 .callout .ic{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:14px;font-family:var(--f-mono)}
 .callout.warn .ic{background:var(--warn);color:var(--surface)}
 .callout.info .ic{background:var(--accent);color:var(--surface)}
+.callout.bad .ic{background:var(--bad);color:var(--surface)}
 .callout b{font-weight:600}
+.agency{border:2px solid var(--accent);background:var(--surface);border-radius:12px;padding:24px}
+.agency h3{font-size:clamp(22px,3vw,30px);letter-spacing:-.02em;margin-bottom:10px}
+.agency ul{margin:12px 0 0;padding-left:20px;color:var(--ink2);font-size:14.5px;display:grid;gap:6px}
 table{border-collapse:collapse;width:100%;font-size:14px}
 th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
 th{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--ink3);white-space:nowrap}
@@ -98,6 +104,7 @@ td.n,th.n{text-align:right;font-family:var(--f-mono);font-variant-numeric:tabula
 tr.tot td{font-weight:600;border-top:2px solid var(--line2)}
 .scroll{overflow-x:auto;max-width:100%}
 .tag{display:inline-block;font-family:var(--f-mono);font-size:11px;padding:1px 7px;border-radius:4px;background:var(--warn-soft);color:var(--warn);font-weight:500;white-space:nowrap}
+.tag.dado{background:var(--good-soft);color:var(--good)}
 .pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:2px 9px;border-radius:99px;white-space:nowrap}
 .pill.hi{background:var(--bad-soft);color:var(--bad)}
 .pill.md{background:var(--warn-soft);color:var(--warn)}
@@ -146,7 +153,7 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .chart text{fill:var(--ink2);font-family:var(--f-mono);font-size:11px}
 .chart .grid-l{stroke:var(--line);stroke-width:1}
 .chart .ax{stroke:var(--line2)}
-#tip{position:fixed;z-index:50;pointer-events:none;background:var(--ink);color:var(--surface);padding:8px 11px;border-radius:7px;font-size:12.5px;line-height:1.4;max-width:260px;opacity:0;transition:opacity .08s;box-shadow:0 4px 18px rgba(0,0,0,.25)}
+#tip{position:fixed;z-index:50;pointer-events:none;background:var(--ink);color:var(--surface);padding:8px 11px;border-radius:7px;font-size:12.5px;line-height:1.4;max-width:270px;opacity:0;transition:opacity .08s;box-shadow:0 4px 18px rgba(0,0,0,.25)}
 #tip b{font-weight:600}
 .fbar{display:grid;grid-template-columns:130px minmax(0,1fr) 90px;gap:10px;align-items:center;margin:8px 0;font-size:13.5px}
 .fbar .t{height:26px;background:var(--surface2);border-radius:5px;position:relative;overflow:hidden;border:1px solid var(--line)}
@@ -193,14 +200,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <div class="shell">
 <nav class="toc" aria-label="Seções do plano">
   <div class="brand">Edus<span>IA</span></div>
-  <small>Plano 2027 · versão 3 · 22/10/2026</small>
+  <small>Plano 2027 · versão 5 · 22/10/2026</small>
   <a href="#inicio">Resumo</a>
-  <a href="#liquido">0 · Definição de líquido</a>
+  <a href="#liquido">0 · Custos e definição de líquido</a>
   <a href="#viabilidade">1 · Viabilidade</a>
   <a href="#cidades">2 · Cidades</a>
   <a href="#calendario">3 · Calendário</a>
-  <a href="#comercial">4 · Estratégia comercial</a>
-  <a href="#marketing">5 · Marketing e divulgação nacional</a>
+  <a href="#comercial">4 · Comercial e equipe</a>
+  <a href="#marketing">5 · Marketing e agência</a>
   <a href="#operacao">6 · Operação</a>
   <a href="#financeiro">7 · Financeiro</a>
   <a href="#okrs">8 · Metas e OKRs</a>
@@ -214,45 +221,83 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <header class="hero" id="inicio">
   <div class="eyebrow">EdusIA Instituto · Planejamento estratégico e comercial</div>
   <h1>R$ 1 milhão líquido em <em>2027</em></h1>
-  <p class="lede">Doze turmas presenciais de oito encontros em três cidades, três workshops de um dia (março, julho e novembro) e três turmas on-line com divulgação nacional. A conta fecha no cenário base, com folga de R$ 5.525, exigindo 87% de ocupação nas turmas presenciais e 100 pagantes em cada turma on-line.</p>
+  <p class="lede">Doze turmas presenciais de oito encontros, seis workshops (dois em março, dois em julho e dois em novembro) e cinco turmas on-line de seis encontros com divulgação nacional. Com os custos detalhados, a agência de marketing, dois vendedores e uma estagiária, o cenário base entrega R$ 1.036.580 líquidos, R$ 36.580 acima da meta, e depende de uma demanda on-line e de workshops que ainda não foi testada.</p>
   <div class="kpis">
     <div class="kpi"><b class="num">R$ 1,00 mi</b><span>meta líquida</span></div>
-    <div class="kpi"><b class="num">R$ 1,38 mi</b><span>faturamento bruto do cenário base</span></div>
+    <div class="kpi"><b class="num">R$ 1,04 mi</b><span>líquido do cenário base (26 alunos por turma)</span></div>
+    <div class="kpi"><b class="num">R$ 1,73 mi</b><span>faturamento bruto do cenário base</span></div>
     <div class="kpi"><b class="num">12</b><span>turmas presenciais (312 matrículas)</span></div>
-    <div class="kpi"><b class="num">3 + 3</b><span>workshops e turmas on-line (300 pagantes)</span></div>
-    <div class="kpi"><b class="num">87%</b><span>ocupação exigida (26 por turma)</span></div>
-    <div class="kpi"><b class="num">R$ 139,3 mil</b><span>marketing total, R$ 90 mil nacional</span></div>
+    <div class="kpi"><b class="num">6 + 5</b><span>workshops e turmas on-line (800 pagantes)</span></div>
+    <div class="kpi"><b class="num">R$ 172 mil</b><span>marketing: agência e divulgação nacional</span></div>
   </div>
-  <div class="callout warn" style="margin-top:16px"><div class="ic">!</div><div><b>Três pontos para a diretoria decidir já.</b> (1) A primeira aula presencial é em 19/01/2027 e hoje é 22/10/2026, então a captação do ciclo 1 precisa começar agora. (2) A definição de "líquido" mudou com a divulgação nacional, e está explicada abaixo. (3) O formato da turma on-line (número de encontros e plataforma) é uma premissa minha e precisa de confirmação.</div></div>
+  <div class="callout warn" style="margin-top:16px"><div class="ic">!</div><div><b>O plano adotado fecha a meta com folga curta.</b> Com 5 turmas on-line e 6 workshops, o líquido é de R$ 1.036.580, mas esses dois produtos respondem por 46% do faturamento bruto e dependem de uma demanda ainda não testada. Sem eles (3 e 3), o líquido seria de R$ 791.955.</div></div>
+  <div class="callout warn" style="margin-top:12px"><div class="ic">!</div><div><b>Outros pontos para decidir já.</b> A primeira aula presencial é em 19/01/2027 e hoje é 22/10/2026, então a captação do ciclo 1 precisa começar agora. E há quatro premissas minhas que pedem confirmação: o reembolso Claude vale para as turmas on-line? A comissão de 10% incide sobre quais receitas? A equipe começa em novembro de 2026? E o deslocamento e a taxa de pagamento do presencial permanecem?</div></div>
 </header>
 
 <section id="liquido">
-  <div class="sec-head"><div class="eyebrow">Seção 0</div><h2>O que "líquido" significa neste plano</h2>
-  <p class="lede">Adotei como <span class="tag">PREMISSA</span> que líquido é a receita bruta, menos o custo direto de 25% sobre cada turma presencial e cada workshop, menos o custo direto de 5% sobre cada turma on-line, menos <b>R$ 90.000 de divulgação nacional</b> (verba separada). O marketing local das turmas presenciais e dos workshops continua dentro dos 25%. Impostos e estrutura fixa ficam de fora.</p></div>
+  <div class="sec-head"><div class="eyebrow">Seção 0</div><h2>Custos e definição de líquido</h2>
+  <p class="lede">Líquido é a receita bruta menos todos os custos desta tabela. Impostos ficam de fora. O custo de 25% usado nas versões anteriores foi substituído, no presencial, pelos itens reais abaixo: uma turma de 26 alunos passa a custar <b>R$ 21.560 (27,6% da receita)</b>.</p></div>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Custo de uma turma presencial</h3>
+      <div class="scroll"><table style="margin-top:8px">
+        <thead><tr><th>Item</th><th class="n">Valor</th><th>Origem</th></tr></thead>
+        <tbody>
+          <tr><td>Facilitação</td><td class="n">R$ 6.000</td><td><span class="tag dado">DADO</span> mantido</td></tr>
+          <tr><td>Local (R$ 2.000 por mês × 2 meses)</td><td class="n">R$ 4.000</td><td><span class="tag dado">DADO</span></td></tr>
+          <tr><td>Coffee-break (R$ 250 × 8 encontros)</td><td class="n">R$ 2.000</td><td><span class="tag dado">DADO</span></td></tr>
+          <tr><td>Reembolso Claude (R$ 110 por mês × 2 meses, por aluno)</td><td class="n">R$ 220 por aluno</td><td><span class="tag dado">DADO</span></td></tr>
+          <tr><td>Deslocamento</td><td class="n">R$ 1.500</td><td><span class="tag">PREMISSA</span></td></tr>
+          <tr><td>Taxa de pagamento</td><td class="n">3% da receita</td><td><span class="tag">PREMISSA</span></td></tr>
+          <tr class="tot"><td>Total com 26 alunos</td><td class="n">R$ 21.560</td><td></td></tr>
+        </tbody></table></div>
+      <p style="font-size:12.5px;color:var(--ink3);margin-top:8px">O material por aluno foi substituído pelo coffee-break. Em número: R$ 13.500 fixos por turma mais R$ 310 por aluno (R$ 220 de Claude e R$ 90 de taxa).</p>
+    </div>
+    <div class="card">
+      <h3>Demais custos do plano</h3>
+      <div class="scroll"><table style="margin-top:8px">
+        <thead><tr><th>Item</th><th class="n">Valor</th><th>Origem</th></tr></thead>
+        <tbody>
+          <tr><td>Workshop (custo direto)</td><td class="n">25% da receita</td><td><span class="tag dado">DADO</span></td></tr>
+          <tr><td>Turma on-line (custo direto)</td><td class="n">5% da receita</td><td><span class="tag dado">DADO</span></td></tr>
+          <tr><td>Agência de marketing (geral, não por turma)</td><td class="n">R$ 3.500 por mês</td><td><span class="tag dado">DADO</span></td></tr>
+          <tr><td>2 vendedores: ajuda de custo</td><td class="n">R$ 1.000 por mês cada</td><td><span class="tag dado">DADO</span></td></tr>
+          <tr><td>2 vendedores: comissão</td><td class="n">10% das vendas</td><td><span class="tag dado">DADO</span></td></tr>
+          <tr><td>Estagiária de suporte interno</td><td class="n">R$ 1.200 por mês</td><td><span class="tag dado">DADO</span></td></tr>
+          <tr><td>Divulgação nacional (5 turmas on-line)</td><td class="n">R$ 130.000 no ano</td><td><span class="tag">PREMISSA</span></td></tr>
+          <tr><td>Base da comissão</td><td class="n">presencial e workshops</td><td><span class="tag">PREMISSA</span></td></tr>
+        </tbody></table></div>
+      <p style="font-size:12.5px;color:var(--ink3);margin-top:8px">Estrutura fixa: R$ 3.500 + R$ 2.000 + R$ 1.200 = R$ 6.700 por mês (R$ 80.400 no ano). Se a comissão também incidir sobre o on-line, o líquido cai R$ 49.500 no cenário base.</p>
+    </div>
+  </div>
+
+  <h3 style="margin:28px 0 12px">Onde o plano chega</h3>
   <div class="card scroll">
     <table>
-      <thead><tr><th>Se "líquido" significar…</th><th class="n">Bruto necessário</th><th>Cabe na capacidade de R$ 1.525.500?</th></tr></thead>
+      <thead><tr><th>Cenário</th><th class="n">Líquido</th><th class="n">Diferença para a meta</th></tr></thead>
       <tbody>
-        <tr><td><b>Receita − 25% (presencial e workshops) − 5% (on-line) − R$ 90.000 de divulgação</b> (adotado)</td><td class="n">R$ 1.374.133</td><td><span class="pill lo">Cabe, com 86% de ocupação</span></td></tr>
-        <tr><td>Sem descontar os R$ 90.000 (se já estiverem incluídos nos 5% do on-line)</td><td class="n">R$ 1.254.133</td><td><span class="pill lo">Cabe, com 75% de ocupação</span></td></tr>
-        <tr><td>Adotado, mais 8% de impostos <span class="tag">PREMISSA</span></td><td class="n">R$ 1.538.209</td><td><span class="pill hi">Não cabe</span></td></tr>
-        <tr><td>Adotado, mais impostos e R$ 240.000 de estrutura <span class="tag">PREMISSA</span></td><td class="n">R$ 1.896.418</td><td><span class="pill hi">Não cabe: exige outra receita</span></td></tr>
+        <tr><td>Escopo anterior (3 workshops e 3 turmas on-line), base</td><td class="n">R$ 791.955</td><td class="n" style="color:var(--bad)">−R$ 208.045</td></tr>
+        <tr><td>Plano adotado (6 workshops e 5 turmas on-line), conservador</td><td class="n">R$ 742.175</td><td class="n" style="color:var(--bad)">−R$ 257.825</td></tr>
+        <tr><td><b>Plano adotado, base (26 alunos por turma)</b></td><td class="n">R$ 1.036.580</td><td class="n" style="color:var(--good)">+R$ 36.580</td></tr>
+        <tr><td>Plano adotado, otimista</td><td class="n">R$ 1.286.861</td><td class="n" style="color:var(--good)">+R$ 286.861</td></tr>
+        <tr><td>Plano adotado, 12 turmas lotadas (30 alunos)</td><td class="n">R$ 1.151.300</td><td class="n" style="color:var(--good)">+R$ 151.300</td></tr>
       </tbody>
     </table>
   </div>
-  <p class="lede" style="margin-top:12px">A capacidade de R$ 1.525.500 é o máximo com 12 turmas lotadas (30 alunos), 3 workshops de 50 pagantes e 3 turmas on-line de 100 pagantes. Os brutos necessários consideram R$ 297.000 de receita on-line. Se a diretoria quiser outra definição, o plano precisa ser refeito. Peço confirmação antes da aprovação.</p>
+  <p class="lede" style="margin-top:12px">A divulgação nacional do plano adotado é de R$ 130.000: R$ 20.000 de mídia por turma on-line (5 turmas) e R$ 30.000 de marca. Descontar impostos tornaria todos os resultados menores.</p>
 </section>
 
 <section id="viabilidade">
   <div class="sec-head"><div class="eyebrow">Seção 1</div><h2>Viabilidade da meta</h2>
-  <p class="lede">Quatro ciclos presenciais de oito semanas, com três turmas por ciclo (uma por cidade), mais três workshops e três turmas on-line. Use o simulador para ver quanto cada premissa pesa.</p></div>
+  <p class="lede">Quatro ciclos presenciais de oito semanas, com três turmas por ciclo (uma por cidade), seis workshops (dois por cidade) e cinco turmas on-line de seis encontros. Use o simulador para testar o que muda o resultado.</p></div>
 
   <div class="card">
     <div class="seg" role="group" aria-label="Cenário" id="presets" style="margin-bottom:20px">
       <button type="button" data-p="cons" aria-pressed="false">Conservador</button>
       <button type="button" data-p="base" aria-pressed="true">Base</button>
       <button type="button" data-p="otim" aria-pressed="false">Otimista</button>
-      <button type="button" data-p="alav" aria-pressed="false">Base + 4ª turma on-line</button>
+      <button type="button" data-p="ant" aria-pressed="false">Escopo anterior (3 + 3)</button>
+      
     </div>
     <div class="sim">
       <div>
@@ -261,15 +306,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         <div class="field"><label for="i-alunos">Alunos por turma (média) <output id="o-alunos"></output></label><input id="i-alunos" type="range" min="15" max="30" step="0.1"></div>
         <div class="field"><label for="i-ticket">Ticket médio por aluno <output id="o-ticket"></output></label><input id="i-ticket" type="range" min="2500" max="3970" step="50"></div>
         <div class="sub">Workshops</div>
-        <div class="field"><label for="i-ws">Edições no ano <output id="o-ws"></output></label><input id="i-ws" type="range" min="0" max="6" step="1"></div>
+        <div class="field"><label for="i-ws">Edições no ano <output id="o-ws"></output></label><input id="i-ws" type="range" min="0" max="9" step="1"></div>
         <div class="field"><label for="i-pag">Pagantes por edição (R$ 990) <output id="o-pag"></output></label><input id="i-pag" type="range" min="20" max="60" step="1"></div>
-        <div class="sub">Turmas on-line</div>
-        <div class="field"><label for="i-on">Turmas no ano <output id="o-on"></output></label><input id="i-on" type="range" min="0" max="6" step="1"></div>
+        <div class="sub">Turmas on-line (6 encontros)</div>
+        <div class="field"><label for="i-on">Turmas no ano <output id="o-on"></output></label><input id="i-on" type="range" min="0" max="8" step="1"></div>
         <div class="field"><label for="i-pon">Pagantes por turma (R$ 990) <output id="o-pon"></output></label><input id="i-pon" type="range" min="30" max="200" step="5"></div>
-        <div class="sub">Custos</div>
-        <div class="field"><label for="i-custo">Custo direto (presencial e workshops) <output id="o-custo"></output></label><input id="i-custo" type="range" min="15" max="40" step="1"></div>
-        <div class="field"><label for="i-conl">Custo direto (on-line) <output id="o-conl"></output></label><input id="i-conl" type="range" min="0" max="25" step="1"></div>
-        <div class="field"><label for="i-mkt">Divulgação nacional <output id="o-mkt"></output></label><input id="i-mkt" type="range" min="0" max="150000" step="5000"></div>
+        <div class="sub">Vendas e divulgação</div>
+        <div class="field"><label for="i-com">Comissão dos vendedores <output id="o-com"></output></label><input id="i-com" type="range" min="0" max="15" step="1"></div>
+        <div class="field"><label for="i-mkt">Divulgação nacional (R$ 20.000 por turma on-line + R$ 30.000) <output id="o-mkt"></output></label><input id="i-mkt" type="range" min="0" max="250000" step="5000"></div>
       </div>
       <div>
         <div style="color:var(--ink2);font-size:13px;margin-bottom:6px">Líquido do ano</div>
@@ -284,7 +328,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
           <div><span>Receita dos workshops</span><span id="r-rw"></span></div>
           <div><span>Receita das turmas on-line</span><span id="r-ro"></span></div>
           <div><span>Bruto</span><span id="r-bruto"></span></div>
-          <div><span>Custo direto</span><span id="r-custo"></span></div>
+          <div><span>Custo direto (presencial, workshops e on-line)</span><span id="r-custo"></span></div>
+          <div><span>Comissão dos vendedores</span><span id="r-cm"></span></div>
+          <div><span>Agência, vendedores e estagiária</span><span id="r-est"></span></div>
           <div><span>Divulgação nacional</span><span id="r-mk"></span></div>
           <div><span>Alunos por turma necessários para a meta</span><span id="r-need"></span></div>
         </div>
@@ -298,32 +344,35 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       <tbody>
         <tr><td>Alunos por turma (12 turmas)</td><td class="n">22</td><td class="n">26</td><td class="n">29</td></tr>
         <tr><td>Matrículas presenciais</td><td class="n">264</td><td class="n">312</td><td class="n">348</td></tr>
-        <tr><td>Pagantes por workshop (3 edições)</td><td class="n">40</td><td class="n">50</td><td class="n">56</td></tr>
-        <tr><td>Pagantes por turma on-line (3 turmas)</td><td class="n">70</td><td class="n">100</td><td class="n">130</td></tr>
-        <tr><td>Receita bruta</td><td class="n">R$ 1.118.700</td><td class="n">R$ 1.381.500</td><td class="n">R$ 1.596.420</td></tr>
-        <tr><td>Custo direto (25% presencial e workshops, 5% on-line)</td><td class="n">R$ 238.095</td><td class="n">R$ 285.975</td><td class="n">R$ 321.885</td></tr>
-        <tr><td>Divulgação nacional</td><td class="n">R$ 90.000</td><td class="n">R$ 90.000</td><td class="n">R$ 90.000</td></tr>
-        <tr class="tot"><td>Líquido</td><td class="n">R$ 790.605</td><td class="n">R$ 1.005.525</td><td class="n">R$ 1.184.535</td></tr>
-        <tr><td>Diferença para a meta</td><td class="n" style="color:var(--bad)">−R$ 209.395</td><td class="n" style="color:var(--good)">+R$ 5.525</td><td class="n" style="color:var(--good)">+R$ 184.535</td></tr>
+        <tr><td>Pagantes por workshop (6 edições)</td><td class="n">40</td><td class="n">50</td><td class="n">56</td></tr>
+        <tr><td>Pagantes por turma on-line (5 turmas)</td><td class="n">70</td><td class="n">100</td><td class="n">130</td></tr>
+        <tr><td>Receita bruta</td><td class="n">R$ 1.376.100</td><td class="n">R$ 1.728.000</td><td class="n">R$ 2.020.140</td></tr>
+        <tr><td>Custo direto</td><td class="n">R$ 320.565</td><td class="n">R$ 357.720</td><td class="n">R$ 385.215</td></tr>
+        <tr><td>Comissão dos vendedores (10%)</td><td class="n">R$ 102.960</td><td class="n">R$ 123.300</td><td class="n">R$ 137.664</td></tr>
+        <tr><td>Agência, vendedores e estagiária</td><td class="n">R$ 80.400</td><td class="n">R$ 80.400</td><td class="n">R$ 80.400</td></tr>
+        <tr><td>Divulgação nacional</td><td class="n">R$ 130.000</td><td class="n">R$ 130.000</td><td class="n">R$ 130.000</td></tr>
+        <tr class="tot"><td>Líquido</td><td class="n">R$ 742.175</td><td class="n">R$ 1.036.580</td><td class="n">R$ 1.286.861</td></tr>
+        <tr><td>Diferença para a meta</td><td class="n" style="color:var(--bad)">−R$ 257.825</td><td class="n" style="color:var(--good)">+R$ 36.580</td><td class="n" style="color:var(--good)">+R$ 286.861</td></tr>
         <tr><td>Ocupação presencial</td><td class="n">73%</td><td class="n">87%</td><td class="n">97%</td></tr>
       </tbody>
     </table>
   </div>
 
-  <div class="callout warn" style="margin-top:16px"><div class="ic">!</div><div><b>A folga do cenário base é pequena.</b> Com só 12 turmas presenciais, a meta exige no mínimo 25,8 alunos por turma (86% de ocupação), e o cenário base usa 26. Cada aluno a menos por turma tira R$ 27.000 do líquido; com 25 por turma faltam R$ 21.475. Já cada 10 pagantes a mais por turma on-line somam R$ 28.215. A alavanca mais direta é uma 4ª turma on-line.</div></div>
+  <div class="callout warn" style="margin-top:16px"><div class="ic">!</div><div><b>A folga de R$ 36.580 é curta.</b> Cada aluno a menos por turma presencial tira R$ 28.680 do líquido (já descontados reembolso Claude, taxa e comissão); a meta exige no mínimo 24,7 alunos por turma (82%). Cada pagante a menos por turma on-line tira R$ 4.703 e cada pagante a menos por workshop, R$ 3.861. Workshops e turmas on-line respondem por 46% do bruto.</div></div>
 
-  <h3 style="margin:28px 0 12px">Alavancas para ganhar folga</h3>
+  <h3 style="margin:28px 0 12px">Quanto a folga aguenta e alavanca extra</h3>
   <div class="grid g4">
-    <div class="card flat"><div class="eyebrow">Recomendada</div><b>4ª turma on-line</b><p style="color:var(--ink2);font-size:14px;margin-top:6px">+R$ 74.050 de líquido (R$ 94.050 depois do custo direto de 5%, menos R$ 20.000 de mídia). Leva o líquido do cenário base a R$ 1.079.575.</p></div>
-    <div class="card flat"><div class="eyebrow">On-line</div><b>Mais pagantes por turma</b><p style="color:var(--ink2);font-size:14px;margin-top:6px">+10 pagantes por turma somam R$ 28.215 de líquido. Depende de lista própria e parcerias nacionais.</p></div>
-    <div class="card flat"><div class="eyebrow">Preço</div><b>Ticket presencial de R$ 3.000 para R$ 3.200</b><p style="color:var(--ink2);font-size:14px;margin-top:6px">+R$ 46.800 de líquido, com bônus mais restritos e data de corte.</p></div>
-    <div class="card flat"><div class="eyebrow">Divulgação</div><b>Custo por pagante on-line de R$ 200 para R$ 150</b><p style="color:var(--ink2);font-size:14px;margin-top:6px">+R$ 15.000 por ano, com parcerias e orgânico no lugar de mídia paga.</p></div>
+    <div class="card flat"><div class="eyebrow">Presencial</div><b>Aguenta 1,3 aluno a menos por turma</b><p style="color:var(--ink2);font-size:14px;margin-top:6px">De 26 para 24,7 alunos (82% de ocupação) o líquido ainda fecha em R$ 1.000.000.</p></div>
+    <div class="card flat"><div class="eyebrow">On-line</div><b>Aguenta 7 pagantes a menos por turma</b><p style="color:var(--ink2);font-size:14px;margin-top:6px">De 100 para 93 pagantes em cada uma das 5 turmas.</p></div>
+    <div class="card flat"><div class="eyebrow">Workshops</div><b>Aguenta 9 pagantes a menos por edição</b><p style="color:var(--ink2);font-size:14px;margin-top:6px">De 50 para 41 pagantes em cada uma das 6 edições.</p></div>
+    <div class="card flat"><div class="eyebrow">Alavanca extra</div><b>6ª turma on-line</b><p style="color:var(--ink2);font-size:14px;margin-top:6px">+R$ 74.050 de líquido (receita menos 5% e R$ 20.000 de mídia). Outra alavanca: ticket presencial de R$ 3.200, que soma R$ 54.288.</p></div>
   </div>
+  <p class="lede" style="margin-top:12px">As perdas acima valem uma de cada vez. Se duas ou mais acontecerem juntas, a folga de R$ 36.580 não cobre. Os botões do simulador mostram o plano adotado e o escopo anterior.</p>
 </section>
 
 <section id="cidades">
   <div class="sec-head"><div class="eyebrow">Seção 2</div><h2>Análise por cidade</h2>
-  <p class="lede">As 312 matrículas presenciais foram distribuídas pelo número de empresas elegíveis (não-MEI) e pelo acesso do fundador. Mococa e São João da Boa Vista recebem a maior meta por turma; São José do Rio Pardo, o menor mercado, recebe menos.</p></div>
+  <p class="lede">As 312 matrículas presenciais foram distribuídas pelo número de empresas elegíveis (não-MEI) e pelo acesso do fundador. As metas presenciais são as mesmas da versão anterior; os seis workshops (dois por cidade) ajudam a alimentá-las.</p></div>
 
   <div class="seg" role="tablist" aria-label="Cidade" id="cityTabs" style="margin-bottom:16px">
     <button type="button" role="tab" data-c="0" aria-selected="true">Mococa</button>
@@ -358,9 +407,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       <tbody>
         <tr><td>Público prioritário <span class="tag">PREMISSA</span></td><td>Donos e gestores de ME/EPP, comércio e serviços, cadeia do agro</td><td>Donos e gestores de ME/EPP, comércio, serviços e indústria</td><td>Donos e gestores de ME/EPP, comércio, serviços e cadeia do café</td></tr>
         <tr><td>Parceiros</td><td>Associação Comercial de Mococa, Sebrae, prefeitura</td><td>Associação comercial local, Sebrae, sindicatos, prefeitura</td><td>Associação comercial local, Sebrae, sindicatos, prefeitura</td></tr>
-        <tr><td>Workshop (sábado)</td><td>20/03, alimenta o ciclo 2</td><td>13/11, alimenta a lista de espera de 2028</td><td>17/07, alimenta o ciclo 3</td></tr>
+        <tr><td>Vendedor responsável <span class="tag">PREMISSA</span></td><td>Vendedor 1</td><td>Vendedor 2</td><td>Vendedor 1</td></tr>
+        <tr><td>Workshops (sábado)</td><td>13/03 (ciclo 2) e 17/07 (ciclo 3)</td><td>20/03 (ciclo 2) e 06/11 (lista de espera de 2028)</td><td>10/07 (ciclo 3) e 13/11 (lista de espera de 2028)</td></tr>
         <tr><td>Concorrência</td><td colspan="3">A levantar nas três cidades: Sebrae, Senac, Senai, faculdades e consultorias locais.</td></tr>
-        <tr><td>Local</td><td colspan="3">Sede da associação comercial ou espaço parceiro, a confirmar.</td></tr>
+        <tr><td>Local</td><td colspan="3">Espaço de R$ 2.000 por mês (R$ 4.000 por turma), em sede de associação comercial ou parceiro, a confirmar.</td></tr>
         <tr><td>Dia da turma</td><td>Terça</td><td>Quarta</td><td>Quinta</td></tr>
       </tbody>
     </table>
@@ -369,7 +419,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 <section id="calendario">
   <div class="sec-head"><div class="eyebrow">Seção 3</div><h2>Calendário 2027</h2>
-  <p class="lede">Quatro ciclos presenciais de 8 encontros semanais, uma cidade por dia, mais três turmas on-line às segundas e três workshops aos sábados. Passe o mouse ou use Tab numa barra para ver as datas. As linhas vermelhas são feriados nacionais; os encontros que caem neles são pulados.</p></div>
+  <p class="lede">Quatro ciclos presenciais de 8 encontros semanais, uma cidade por dia, mais cinco turmas on-line de 6 encontros às segundas e seis workshops aos sábados. Passe o mouse ou use Tab numa barra para ver as datas. As linhas vermelhas são feriados nacionais; os encontros que caem neles são pulados.</p></div>
   <div class="card">
     <div class="seg" role="group" aria-label="Filtro do calendário" id="calFilter" style="margin-bottom:14px">
       <button type="button" data-f="all" aria-pressed="true">Tudo</button>
@@ -393,20 +443,36 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     <table id="calTable"></table>
   </div>
   <div class="card scroll" style="margin-top:16px">
-    <h3 style="margin-bottom:8px">Turmas on-line <span class="tag">PREMISSA: 4 encontros ao vivo, segundas, 19h30</span></h3>
+    <h3 style="margin-bottom:8px">Turmas on-line <span class="tag dado">DADO: 6 encontros</span> <span class="tag">PREMISSA: segundas, 19h30</span></h3>
     <table id="onTable"></table>
   </div>
   <div class="grid g3" style="margin-top:16px">
-    <div class="card flat"><b>Pausa no meio do ano</b><p style="color:var(--ink2);font-size:14px;margin-top:6px">Sem turma presencial de 27/05 a 02/08. Esse período recebe a primeira turma on-line, o workshop de julho e a preparação do ciclo 3.</p></div>
-    <div class="card flat"><b>Workshop de novembro</b><p style="color:var(--ink2);font-size:14px;margin-top:6px">Acontece depois do último ciclo presencial de São João da Boa Vista, então alimenta a lista de espera de 2028.</p></div>
+    <div class="card flat"><b>Pausa no meio do ano</b><p style="color:var(--ink2);font-size:14px;margin-top:6px">Sem turma presencial de 27/05 a 02/08. Esse período recebe a turma on-line 3, os dois workshops de julho e a preparação do ciclo 3.</p></div>
+    <div class="card flat"><b>Workshops de novembro</b><p style="color:var(--ink2);font-size:14px;margin-top:6px">Os dois de novembro acontecem com o ciclo 4 em andamento ou já encerrado e alimentam a lista de espera de 2028.</p></div>
     <div class="card flat"><b>Feriados municipais</b><p style="color:var(--ink2);font-size:14px;margin-top:6px">Não foram considerados e precisam ser conferidos nas três cidades antes de divulgar as datas.</p></div>
   </div>
 </section>
 
 <section id="comercial">
-  <div class="sec-head"><div class="eyebrow">Seção 4</div><h2>Estratégia comercial</h2>
-  <p class="lede">O funil presencial usa conversão total de 7% de lead para matrícula. O funil on-line usa 3% de lead para pagante. Nenhuma das duas foi medida na EdusIA e são as premissas que mais pesam.</p></div>
-  <div class="grid g2">
+  <div class="sec-head"><div class="eyebrow">Seção 4</div><h2>Estratégia comercial e equipe</h2>
+  <p class="lede">O funil presencial usa conversão total de 7% de lead para matrícula e o funil on-line, 3% de lead para pagante. Nenhuma das duas foi medida na EdusIA. A venda presencial passa a ser conduzida por dois vendedores.</p></div>
+
+  <div class="grid g3">
+    <div class="card"><h3>Dois vendedores</h3>
+      <p style="color:var(--ink2);font-size:14px;margin-top:8px">Ajuda de custo de R$ 1.000 por mês cada, mais 10% de comissão sobre as vendas <span class="tag dado">DADO</span>. Prospectam nas associações, conduzem as conversas por WhatsApp, agendam aulas-experimento e diagnósticos DISC e fecham a matrícula.</p>
+      <div class="rows"><div><span>Ajuda de custo (2 × 12 meses)</span><span>R$ 24.000</span></div><div><span>Comissão no cenário base</span><span>R$ 123.300</span></div><div><span>Média por vendedor, por mês</span><span>R$ 6.138</span></div></div>
+    </div>
+    <div class="card"><h3>Estagiária de suporte</h3>
+      <p style="color:var(--ink2);font-size:14px;margin-top:8px">R$ 1.200 por mês <span class="tag dado">DADO</span>, sem encargos de CLT <span class="tag">PREMISSA</span>. Cuida do CRM, das matrículas e pagamentos, da logística das turmas e do atendimento aos alunos on-line.</p>
+      <div class="rows"><div><span>Custo no ano</span><span>R$ 14.400</span></div></div>
+    </div>
+    <div class="card"><h3>Agência de marketing</h3>
+      <p style="color:var(--ink2);font-size:14px;margin-top:8px">R$ 3.500 por mês, para a empresa toda e não por turma <span class="tag dado">DADO</span>. Administra as redes sociais e o calendário editorial (detalhes na seção 5).</p>
+      <div class="rows"><div><span>Custo no ano</span><span>R$ 42.000</span></div></div>
+    </div>
+  </div>
+
+  <div class="grid g2" style="margin-top:16px">
     <div class="card">
       <h3>Funil presencial anual</h3>
       <div class="scroll"><table>
@@ -414,38 +480,39 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
         <tbody>
           <tr><td>Leads</td><td class="n">1.543</td><td class="n">1.543</td><td class="n">1.371</td><td class="n">4.457</td></tr>
           <tr><td>Conversas (40%)</td><td class="n">617</td><td class="n">617</td><td class="n">548</td><td class="n">1.782</td></tr>
-          <tr><td>Diagnóstico ou aula-experimento (50%)</td><td class="n">309</td><td class="n">309</td><td class="n">274</td><td class="n">892</td></tr>
+          <tr><td>Diagnóstico DISC ou aula-experimento (50%)</td><td class="n">309</td><td class="n">309</td><td class="n">274</td><td class="n">892</td></tr>
           <tr class="tot"><td>Matrículas (35%)</td><td class="n">108</td><td class="n">108</td><td class="n">96</td><td class="n">312</td></tr>
           <tr><td>Leads sobre empresas elegíveis</td><td class="n">23%</td><td class="n">17%</td><td class="n">26%</td><td class="n"></td></tr>
         </tbody></table></div>
     </div>
     <div class="card">
       <h3>Funil on-line nacional</h3>
-      <p style="color:var(--ink2);font-size:13px;margin:4px 0 8px">Por turma de 100 pagantes <span class="tag">PREMISSA</span></p>
+      <p style="color:var(--ink2);font-size:13px;margin:4px 0 8px">Por turma de 100 pagantes, sem diagnóstico DISC <span class="tag">PREMISSA</span></p>
       <div class="rows">
         <div><span>Leads necessários (conversão de 3%)</span><span>3.333</span></div>
-        <div><span>Custo por lead (R$ 6)</span><span>R$ 20.000</span></div>
-        <div><span>Custo por pagante (R$ 200)</span><span>R$ 200</span></div>
-        <div><span>Leads nas 3 turmas</span><span>10.000</span></div>
-        <div><span>Pagantes nas 3 turmas</span><span>300</span></div>
+        <div><span>Mídia por turma (R$ 6 por lead)</span><span>R$ 20.000</span></div>
+        <div><span>Custo por pagante</span><span>R$ 200</span></div>
+        <div><span>Leads nas 5 turmas</span><span>16.667</span></div>
+        <div><span>Pagantes nas 5 turmas</span><span>500</span></div>
       </div>
       <p style="margin-top:12px;font-size:13px;color:var(--ink2)">Receita por turma R$ 99.000, custo direto de 5% (R$ 4.950) e mídia R$ 20.000 deixam R$ 74.050 de líquido por turma.</p>
     </div>
   </div>
+
   <div class="grid g2" style="margin-top:16px">
     <div class="card">
       <h3>Como as vendas presenciais acontecem</h3>
       <div class="dots" style="margin-top:12px">
-        <div><b class="sw" style="background:var(--accent)"></b><span><b>Canais.</b> Associações comerciais, indicação de ex-alunos, WhatsApp, Instagram, LinkedIn e o CRM da EdusIA.</span><span></span></div>
-        <div><b class="sw" style="background:var(--navy)"></b><span><b>Workshop como porta de entrada.</b> Cerca de 420 leads por edição (conversão de 12%); 20% dos pagantes devem virar aluno do ciclo seguinte, ou 10 matrículas por edição.</span><span></span></div>
-        <div><b class="sw" style="background:var(--warn)"></b><span><b>Preço.</b> Tabela de R$ 3.970. Bônus só para quem fecha até a data de corte, para proteger o ticket de R$ 3.000. Pagamento em 3 parcelas.</span><span></span></div>
+        <div><b class="sw" style="background:var(--accent)"></b><span><b>Canais.</b> Vendedores, associações comerciais, indicação de ex-alunos, WhatsApp e o conteúdo das redes administradas pela agência.</span><span></span></div>
+        <div><b class="sw" style="background:var(--navy)"></b><span><b>Workshop como porta de entrada.</b> Cerca de 420 leads por edição (conversão de 12%); 20% dos pagantes viram aluno do ciclo seguinte, ou 10 matrículas por edição (cerca de 60 no ano, nas 6 edições).</span><span></span></div>
+        <div><b class="sw" style="background:var(--warn)"></b><span><b>Preço.</b> Tabela de R$ 3.970. Bônus só até a data de corte, para proteger o ticket de R$ 3.000. Pagamento em 3 parcelas.</span><span></span></div>
         <div><b class="sw" style="background:var(--bad)"></b><span><b>Regras do ciclo.</b> Corte de matrícula 7 dias antes do início; alerta com menos de 20 matrículas em D-14; adiamento de 2 semanas se houver menos de 20 em D-3.</span><span></span></div>
       </div>
     </div>
     <div class="card">
       <h3>Como as turmas on-line se conectam ao presencial</h3>
       <div class="dots" style="margin-top:12px">
-        <div><b class="sw" style="background:var(--rose)"></b><span><b>Ticket de entrada.</b> R$ 990 coloca o aluno em contato com a metodologia e abre a porta para o presencial do ciclo seguinte.</span><span></span></div>
+        <div><b class="sw" style="background:var(--rose)"></b><span><b>Ticket de entrada.</b> R$ 990 coloca o aluno em contato com a metodologia em 6 encontros e abre a porta para o presencial do ciclo seguinte.</span><span></span></div>
         <div><b class="sw" style="background:var(--accent)"></b><span><b>Alunos das três cidades.</b> Quem mora perto de Mococa, São João da Boa Vista ou São José do Rio Pardo recebe oferta de turma presencial com crédito do valor pago <span class="tag">PREMISSA</span>.</span><span></span></div>
         <div><b class="sw" style="background:var(--violet)"></b><span><b>Lista nacional.</b> Todo pagante entra na lista de e-mail e de WhatsApp para a próxima turma on-line e para eventos.</span><span></span></div>
       </div>
@@ -455,16 +522,30 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 </section>
 
 <section id="marketing">
-  <div class="sec-head"><div class="eyebrow">Seção 5</div><h2>Marketing e divulgação nacional</h2>
-  <p class="lede">O marketing tem duas partes. O local, das turmas presenciais e dos workshops, sai dos 25% de custo direto e soma cerca de R$ 49.320. A divulgação nacional, das turmas on-line, tem verba própria de R$ 90.000. Juntos são <b>R$ 139.320</b>, ou 10,1% do bruto.</p></div>
+  <div class="sec-head"><div class="eyebrow">Seção 5</div><h2>Marketing, agência e divulgação nacional</h2>
+  <p class="lede">O marketing agora tem duas verbas: a <b>agência</b>, de R$ 3.500 por mês para a empresa toda, e a <b>divulgação nacional</b>, de R$ 130.000, das turmas on-line. Juntas somam <b>R$ 172.000</b>, ou 10,0% do bruto. O presencial não tem mídia paga local; ele vive de vendedores, parcerias, workshops e do conteúdo da agência.</p></div>
 
   <div class="grid g3">
-    <div class="card"><div class="res-big num" style="font-size:34px">R$ 49.320</div><span style="color:var(--ink2);font-size:13px">marketing local, dentro dos 25%: 12 turmas × R$ 3.360 e 3 workshops × R$ 3.000</span></div>
-    <div class="card"><div class="res-big num" style="font-size:34px">R$ 90.000</div><span style="color:var(--ink2);font-size:13px">divulgação nacional, verba própria: R$ 60.000 por turma on-line e R$ 30.000 de marca</span></div>
-    <div class="card"><div class="res-big num" style="font-size:34px">R$ 139.320</div><span style="color:var(--ink2);font-size:13px">marketing total do ano</span></div>
+    <div class="card"><div class="res-big num" style="font-size:34px">R$ 42.000</div><span style="color:var(--ink2);font-size:13px">agência de marketing: R$ 3.500 por mês, geral</span></div>
+    <div class="card"><div class="res-big num" style="font-size:34px">R$ 130.000</div><span style="color:var(--ink2);font-size:13px">divulgação nacional: R$ 100.000 em 5 turmas on-line e R$ 30.000 de marca</span></div>
+    <div class="card"><div class="res-big num" style="font-size:34px">R$ 172.000</div><span style="color:var(--ink2);font-size:13px">marketing total do ano</span></div>
   </div>
 
-  <h3 style="margin:30px 0 12px">Divulgação nacional: R$ 90.000</h3>
+  <div class="agency" style="margin-top:20px">
+    <div class="eyebrow">Recomendação central</div>
+    <h3>Contrate uma agência para administrar as redes sociais</h3>
+    <p style="color:var(--ink2);max-width:70ch">As redes sociais são o motor que alimenta vendedores, workshops e turmas on-line. Em 2027 Eduardo estará em sala de aula cerca de 396 horas e três dias por semana durante os ciclos. Sem um parceiro dedicado, a rotina de publicação é a primeira coisa a falhar, justamente quando a captação do ciclo seguinte precisa acontecer.</p>
+    <ul>
+      <li><b>Constância:</b> publicação diária e calendário editorial fechado por trimestre, independente da agenda de Eduardo.</li>
+      <li><b>Qualidade e marca nacional:</b> design, vídeos curtos e identidade única para as três cidades e para o público on-line de todo o Brasil.</li>
+      <li><b>Captação com método:</b> o conteúdo passa a ter chamada para ação, link rastreado e relatório mensal de leads por cidade.</li>
+      <li><b>Gestão de tráfego pago:</b> a agência opera os anúncios das campanhas on-line (a verba de mídia fica à parte, nos R$ 130.000).</li>
+      <li><b>Menos risco:</b> a comunicação deixa de depender de uma única pessoa, o mesmo problema que o plano já aponta na facilitação.</li>
+    </ul>
+    <p style="margin-top:14px;font-size:13.5px;color:var(--ink2)"><b>Escopo mínimo a exigir em contrato</b> <span class="tag">SUGESTÃO</span>: 5 posts por semana, stories diários, 8 vídeos curtos por mês, gestão de comentários e mensagens, calendário editorial mensal aprovado por Eduardo, relatório mensal de resultados e revisão do contrato em 90 dias, com metas de leads.</p>
+  </div>
+
+  <h3 style="margin:30px 0 12px">Divulgação nacional: R$ 130.000</h3>
   <div class="grid g2">
     <div class="card">
       <h3>Orçamento por frente</h3>
@@ -475,9 +556,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     <div class="card">
       <h3>Estratégia nacional</h3>
       <div class="dots" style="margin-top:12px">
-        <div><b class="sw" style="background:var(--rose)"></b><span><b>Objetivo.</b> Lotar 3 turmas on-line (300 pagantes) e dar visibilidade nacional à EdusIA.</span><span></span></div>
+        <div><b class="sw" style="background:var(--rose)"></b><span><b>Objetivo.</b> Lotar 5 turmas on-line (500 pagantes) e dar visibilidade nacional à EdusIA.</span><span></span></div>
         <div><b class="sw" style="background:var(--accent)"></b><span><b>Público.</b> Donos e gestores de pequenas empresas, líderes de equipe e profissionais de RH e vendas em todo o Brasil.</span><span></span></div>
-        <div><b class="sw" style="background:var(--navy)"></b><span><b>Oferta.</b> Turma on-line de R$ 990, com 4 encontros ao vivo, diagnóstico DISC on-line e IA aplicada <span class="tag">PREMISSA</span>.</span><span></span></div>
+        <div><b class="sw" style="background:var(--navy)"></b><span><b>Oferta.</b> Turma on-line de R$ 990, com 6 encontros ao vivo e IA aplicada, sem diagnóstico DISC <span class="tag dado">DADO</span>.</span><span></span></div>
         <div><b class="sw" style="background:var(--violet)"></b><span><b>Funil.</b> Aula aberta gratuita ao vivo, depois e-mail e WhatsApp até o fechamento. Conversão de 3% e custo de R$ 200 por pagante <span class="tag">PREMISSA</span>.</span><span></span></div>
         <div><b class="sw" style="background:var(--warn)"></b><span><b>Canais.</b> Meta Ads, Google e LinkedIn Ads em nível nacional; parcerias com associações comerciais de outros estados (rede da FACESP) e Sebrae estaduais; influenciadores B2B; assessoria de imprensa; e-mail marketing.</span><span></span></div>
       </div>
@@ -487,56 +568,50 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   <div class="card scroll" style="margin-top:16px">
     <h3 style="margin-bottom:8px">Calendário da divulgação por turma on-line</h3>
     <table>
-      <thead><tr><th>Turma</th><th>Aulas</th><th>Campanha</th><th>Ações-chave</th><th class="n">Verba</th></tr></thead>
+      <thead><tr><th>Turma</th><th>Aulas (6 encontros)</th><th>Campanha</th><th>Ações-chave</th><th class="n">Verba</th></tr></thead>
       <tbody>
-        <tr><td>On-line 1</td><td>07/06 a 28/06</td><td>12/04 a 04/06</td><td>Lançamento, 2 aulas abertas ao vivo nas 3 últimas semanas, parcerias</td><td class="n">R$ 20.000</td></tr>
-        <tr><td>On-line 2</td><td>13/09 a 04/10</td><td>12/07 a 10/09</td><td>Depoimentos da turma 1, imprensa, indicação de ex-alunos</td><td class="n">R$ 20.000</td></tr>
-        <tr><td>On-line 3</td><td>08/11 a 06/12</td><td>20/09 a 05/11</td><td>Prova social das turmas 1 e 2, oferta de fim de ano</td><td class="n">R$ 20.000</td></tr>
-        <tr><td>Marca (o ano todo)</td><td>jan a dez</td><td>R$ 2.500 por mês</td><td>Conteúdo e vídeo, imprensa e PR, materiais ricos, automação</td><td class="n">R$ 30.000</td></tr>
-        <tr class="tot"><td>Total</td><td></td><td></td><td></td><td class="n">R$ 90.000</td></tr>
+        <tr><td>On-line 1</td><td>22/02 a 29/03</td><td>04/01 a 19/02</td><td>Lançamento, 2 aulas abertas ao vivo nas 3 últimas semanas, parcerias</td><td class="n">R$ 20.000</td></tr>
+        <tr><td>On-line 2</td><td>26/04 a 31/05</td><td>01/03 a 23/04</td><td>Depoimentos da turma 1, imprensa, indicação de ex-alunos</td><td class="n">R$ 20.000</td></tr>
+        <tr><td>On-line 3</td><td>14/06 a 19/07</td><td>26/04 a 11/06</td><td>Prova social das turmas 1 e 2, parcerias com associações de outros estados</td><td class="n">R$ 20.000</td></tr>
+        <tr><td>On-line 4</td><td>06/09 a 11/10</td><td>12/07 a 03/09</td><td>Depoimentos das turmas 1 a 3, imprensa, indicação</td><td class="n">R$ 20.000</td></tr>
+        <tr><td>On-line 5</td><td>01/11 a 13/12</td><td>13/09 a 29/10</td><td>Prova social do ano, oferta de fim de ano</td><td class="n">R$ 20.000</td></tr>
+        <tr><td>Marca (o ano todo)</td><td>jan a dez</td><td>R$ 2.500 por mês</td><td>Vídeo, imprensa e PR, materiais ricos, automação</td><td class="n">R$ 30.000</td></tr>
+        <tr class="tot"><td>Total</td><td></td><td></td><td></td><td class="n">R$ 130.000</td></tr>
       </tbody>
     </table>
     <p style="font-size:12.5px;color:var(--ink3);margin-top:8px">Cada campanha de R$ 20.000 reúne R$ 14.000 de mídia paga, R$ 3.000 de aulas abertas ao vivo e R$ 3.000 de parcerias e influenciadores.</p>
   </div>
 
-  <h3 style="margin:30px 0 12px">Marketing local das turmas presenciais</h3>
-  <div class="card">
-    <h3>De onde vem o orçamento de uma turma</h3>
-    <p style="color:var(--ink2);font-size:13px;margin:4px 0 10px">Turma-base: 26 alunos, receita de R$ 78.000, custo de R$ 19.500 <span class="tag">PREMISSA</span></p>
-    <div class="stack" id="turmaStack" role="img" aria-label="Decomposição do custo de uma turma presencial"></div>
-    <div class="dots" id="turmaDots"></div>
-  </div>
-
   <div class="card scroll" style="margin-top:16px">
-    <h3 style="margin-bottom:8px">Orçamento de marketing por período</h3>
+    <h3 style="margin-bottom:8px">Orçamento de marketing por trimestre</h3>
     <table>
-      <thead><tr><th>Período</th><th class="n">Local</th><th class="n">Nacional</th><th class="n">Total</th><th>Uso principal</th></tr></thead>
+      <thead><tr><th>Período</th><th class="n">Agência</th><th class="n">Nacional</th><th class="n">Total</th><th>Uso principal</th></tr></thead>
       <tbody>
-        <tr><td>Nov a dez/2026</td><td class="n">R$ 6.048</td><td class="n">R$ 0</td><td class="n">R$ 6.048</td><td>Captação do ciclo 1</td></tr>
-        <tr><td>T1/2027</td><td class="n">R$ 17.112</td><td class="n">R$ 7.500</td><td class="n">R$ 24.612</td><td>Ciclos 1 e 2, workshop de Mococa, marca nacional</td></tr>
-        <tr><td>T2/2027</td><td class="n">R$ 5.040</td><td class="n">R$ 27.500</td><td class="n">R$ 32.540</td><td>Campanha da turma on-line 1, captação do ciclo 3</td></tr>
-        <tr><td>T3/2027</td><td class="n">R$ 18.120</td><td class="n">R$ 37.500</td><td class="n">R$ 55.620</td><td>Ciclos 3 e 4, workshop de São José do Rio Pardo, turmas on-line 2 e 3</td></tr>
-        <tr><td>T4/2027</td><td class="n">R$ 3.000</td><td class="n">R$ 17.500</td><td class="n">R$ 20.500</td><td>Workshop de São João da Boa Vista, turma on-line 3, lista de espera 2028</td></tr>
-        <tr class="tot"><td>Total</td><td class="n">R$ 49.320</td><td class="n">R$ 90.000</td><td class="n">R$ 139.320</td><td>10,1% do bruto</td></tr>
+        <tr><td>T1/2027</td><td class="n">R$ 10.500</td><td class="n">R$ 39.500</td><td class="n">R$ 50.000</td><td>Turmas on-line 1 e 2, ciclos 1 e 2, workshops de março, marca nacional</td></tr>
+        <tr><td>T2/2027</td><td class="n">R$ 10.500</td><td class="n">R$ 35.500</td><td class="n">R$ 46.000</td><td>Turmas on-line 2 e 3, captação do ciclo 3</td></tr>
+        <tr><td>T3/2027</td><td class="n">R$ 10.500</td><td class="n">R$ 39.500</td><td class="n">R$ 50.000</td><td>Turmas on-line 4 e 5, ciclos 3 e 4, workshops de julho</td></tr>
+        <tr><td>T4/2027</td><td class="n">R$ 10.500</td><td class="n">R$ 15.500</td><td class="n">R$ 26.000</td><td>Turma on-line 5, workshops de novembro, lista de espera 2028</td></tr>
+        <tr class="tot"><td>Total</td><td class="n">R$ 42.000</td><td class="n">R$ 130.000</td><td class="n">R$ 172.000</td><td>10,0% do bruto</td></tr>
       </tbody>
     </table>
+    <p style="font-size:12.5px;color:var(--ink3);margin-top:8px">A agência deve começar em novembro de 2026, para sustentar a captação do ciclo 1 (R$ 7.000 em nov e dez, fora do orçamento de 2027) <span class="tag">PREMISSA</span>. O marketing dos workshops (R$ 3.000 por edição) está dentro do custo direto de 25%.</p>
   </div>
 
   <h3 style="margin:30px 0 12px">Posicionamento</h3>
-  <div class="card flat"><p style="font-family:var(--f-display);font-size:clamp(20px,2.6vw,28px);font-weight:700;letter-spacing:-.01em;max-width:30ch">Liderança e vendas com DISC e IA aplicada, no seu dia a dia.</p><p style="color:var(--ink2);margin-top:10px;font-size:14px">Local: "na sua cidade", com turma, associação e depoimento de gente que o cliente conhece. Nacional: "do seu escritório", com aula aberta ao vivo e diagnóstico DISC on-line. Provas: workshop de Mogi Guaçu, casos de alunos e o selo das associações parceiras.</p></div>
+  <div class="card flat"><p style="font-family:var(--f-display);font-size:clamp(20px,2.6vw,28px);font-weight:700;letter-spacing:-.01em;max-width:30ch">Liderança e vendas com DISC e IA aplicada, no seu dia a dia.</p><p style="color:var(--ink2);margin-top:10px;font-size:14px">Presencial: "na sua cidade", com turma, associação e depoimento de gente que o cliente conhece, e o diagnóstico DISC como porta de entrada. On-line: "do seu escritório", com aula aberta ao vivo e IA aplicada. Provas: workshop de Mogi Guaçu, casos de alunos e o selo das associações parceiras.</p></div>
 
   <h3 style="margin:30px 0 12px">Mecânicas de captação</h3>
   <div class="grid g3">
-    <div class="card"><b>Diagnóstico DISC gratuito</b><p style="color:var(--ink2);font-size:14px;margin-top:6px">Isca nas duas frentes: presencial, na conversa com o dono; nacional, em versão on-line.</p></div>
+    <div class="card"><b>Diagnóstico DISC (só presencial)</b><p style="color:var(--ink2);font-size:14px;margin-top:6px">Isca usada pelos vendedores na conversa com o dono. As turmas on-line não têm diagnóstico DISC.</p></div>
     <div class="card"><b>Aula-experimento presencial</b><p style="color:var(--ink2);font-size:14px;margin-top:6px">Uma hora em cada cidade, de 3 a 4 semanas antes de cada ciclo.</p></div>
     <div class="card"><b>Aula aberta ao vivo (nacional)</b><p style="color:var(--ink2);font-size:14px;margin-top:6px">Duas por campanha on-line, com oferta da turma no final.</p></div>
     <div class="card"><b>Parcerias com associações</b><p style="color:var(--ink2);font-size:14px;margin-top:6px">Base de associados local e, no nacional, associações comerciais de outros estados via FACESP.</p></div>
     <div class="card"><b>Indicação premiada</b><p style="color:var(--ink2);font-size:14px;margin-top:6px">Bônus para quem indica um aluno que se matricula, no presencial e no on-line.</p></div>
-    <div class="card"><b>Imprensa e Eduardo como voz</b><p style="color:var(--ink2);font-size:14px;margin-top:6px">Pautas sobre IA aplicada e DISC em veículos de negócios; LinkedIn, vídeos curtos e depoimentos.</p></div>
+    <div class="card"><b>Imprensa e Eduardo como voz</b><p style="color:var(--ink2);font-size:14px;margin-top:6px">Pautas sobre IA aplicada e liderança em veículos de negócios; LinkedIn, vídeos curtos e depoimentos.</p></div>
   </div>
 
   <h3 style="margin:30px 0 12px">Rotina semanal de conteúdo</h3>
-  <p style="color:var(--ink2);font-size:14px;margin-bottom:10px">Alinhada à rotina diária de publicação que já existe. Cada peça tem uma chamada para ação; o link muda conforme o público (WhatsApp da cidade ou página da turma on-line).</p>
+  <p style="color:var(--ink2);font-size:14px;margin-bottom:10px">Executada pela agência e aprovada por Eduardo, a partir da rotina diária de publicação que já existe. Cada peça tem uma chamada para ação; o link muda conforme o público (WhatsApp da cidade ou página da turma on-line).</p>
   <div class="week">
     <div><b>SEG</b>Dica de gestão com DISC</div>
     <div><b>TER</b>Caso de aluno ou bastidor da turma</div>
@@ -549,35 +624,36 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   <h3 style="margin:30px 0 12px">Indicadores de marketing</h3>
   <div class="grid g4">
     <div class="card"><div class="res-big num" style="font-size:30px">371</div><span style="color:var(--ink2);font-size:13px">leads presenciais por mês (4.457 no ano)</span></div>
-    <div class="card"><div class="res-big num" style="font-size:30px">10.000</div><span style="color:var(--ink2);font-size:13px">leads nacionais no ano</span></div>
+    <div class="card"><div class="res-big num" style="font-size:30px">16.667</div><span style="color:var(--ink2);font-size:13px">leads nacionais no ano</span></div>
     <div class="card"><div class="res-big num" style="font-size:30px">R$ 6</div><span style="color:var(--ink2);font-size:13px">custo por lead nacional</span></div>
-    <div class="card"><div class="res-big num" style="font-size:30px">R$ 200</div><span style="color:var(--ink2);font-size:13px">custo por pagante on-line (R$ 129 por aluno presencial)</span></div>
+    <div class="card"><div class="res-big num" style="font-size:30px">R$ 200</div><span style="color:var(--ink2);font-size:13px">custo por pagante on-line</span></div>
   </div>
 </section>
 
 <section id="operacao">
   <div class="sec-head"><div class="eyebrow">Seção 6</div><h2>Operação e capacidade</h2>
-  <p class="lede">Com 12 turmas presenciais, a carga caiu em relação ao plano anterior. A turma on-line, porém, traz uma segunda operação: plataforma, suporte e atendimento para 100 pessoas por turma.</p></div>
+  <p class="lede">A equipe agora tem mais gente além de Eduardo: dois vendedores, uma estagiária e a agência. A facilitação, porém, continua concentrada nele.</p></div>
   <div class="grid g4">
-    <div class="card"><div class="res-big num" style="font-size:34px">336 h</div><span style="color:var(--ink2);font-size:13px">de facilitação: 288 h presenciais, 24 h on-line e 24 h de workshops</span></div>
+    <div class="card"><div class="res-big num" style="font-size:34px">396 h</div><span style="color:var(--ink2);font-size:13px">de facilitação: 288 h presenciais, 60 h on-line (2 h por encontro) e 48 h de workshops</span></div>
     <div class="card"><div class="res-big num" style="font-size:34px">32</div><span style="color:var(--ink2);font-size:13px">semanas de aula presencial (4 ciclos de 8)</span></div>
-    <div class="card"><div class="res-big num" style="font-size:34px">12</div><span style="color:var(--ink2);font-size:13px">encontros on-line, às segundas</span></div>
+    <div class="card"><div class="res-big num" style="font-size:34px">30</div><span style="color:var(--ink2);font-size:13px">encontros on-line, às segundas (5 turmas de 6)</span></div>
     <div class="card"><div class="res-big num" style="font-size:34px">10</div><span style="color:var(--ink2);font-size:13px">semanas sem turma presencial no meio do ano</span></div>
   </div>
   <div class="grid g2" style="margin-top:16px">
     <div class="card"><h3>Gargalos</h3>
       <div class="dots" style="margin-top:12px">
-        <div><b class="sw" style="background:var(--bad)"></b><span>Um facilitador conduz todos os encontros; um afastamento paralisa três turmas ou uma turma on-line.</span><span></span></div>
-        <div><b class="sw" style="background:var(--warn)"></b><span>Nas semanas em que o ciclo presencial coincide com as segundas on-line (13/09 a 28/09 e 08/11 a 06/12), são 4 dias de aula por semana.</span><span></span></div>
-        <div><b class="sw" style="background:var(--warn)"></b><span>100 alunos on-line pedem suporte, plataforma de transmissão estável e atendimento por e-mail e WhatsApp.</span><span></span></div>
+        <div><b class="sw" style="background:var(--bad)"></b><span>Um facilitador conduz todos os encontros (396 h, incluindo 6 sábados de workshop); um afastamento paralisa três turmas ou uma turma on-line.</span><span></span></div>
+        <div><b class="sw" style="background:var(--warn)"></b><span>Em cerca de 20 semanas o ciclo presencial coincide com as segundas on-line (22/02 a 16/03, 26/04 a 26/05, 06/09 a 11/10 e 01/11 a 07/12), e há 4 dias de aula por semana.</span><span></span></div>
+        <div><b class="sw" style="background:var(--warn)"></b><span>Uma única estagiária atende CRM, matrículas, logística e 100 alunos on-line por turma (500 no ano), em semanas de pico.</span><span></span></div>
+        <div><b class="sw" style="background:var(--warn)"></b><span>A meta presencial depende de dois vendedores; a saída de um deles interrompe a captação de uma ou duas cidades.</span><span></span></div>
       </div>
     </div>
     <div class="card"><h3>Recomendações</h3>
       <div class="dots" style="margin-top:12px">
-        <div><b class="sw" style="background:var(--good)"></b><span>Formar um facilitador reserva já no ciclo 2.</span><span></span></div>
-        <div><b class="sw" style="background:var(--good)"></b><span>Contratar um profissional de suporte e tutoria para as turmas on-line e para o CRM.</span><span></span></div>
+        <div><b class="sw" style="background:var(--good)"></b><span>Formar um facilitador reserva já no ciclo 2, para assumir as segundas on-line a partir da turma 3.</span><span></span></div>
+        <div><b class="sw" style="background:var(--good)"></b><span>Definir por escrito as regras de comissão e de reembolso Claude antes das contratações.</span><span></span></div>
         <div><b class="sw" style="background:var(--good)"></b><span>Escolher a plataforma on-line até fevereiro, com teste de carga para 130 conexões.</span><span></span></div>
-        <div><b class="sw" style="background:var(--good)"></b><span>Fechar locais por contrato anual com as associações e padronizar material e uso de IA.</span><span></span></div>
+        <div><b class="sw" style="background:var(--good)"></b><span>Fechar locais por contrato anual (R$ 2.000 por mês) e a agência por contrato de 12 meses com revisão em 90 dias.</span><span></span></div>
       </div>
     </div>
   </div>
@@ -585,36 +661,36 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 <section id="financeiro">
   <div class="sec-head"><div class="eyebrow">Seção 7</div><h2>Financeiro, cenário base</h2>
-  <p class="lede">Presencial em 3 parcelas iguais a partir do mês de início de cada ciclo; workshops e turmas on-line no mês em que acontecem. O custo direto (25% no presencial e nos workshops, 5% no on-line) é aplicado à receita do mês e a divulgação nacional entra no mês em que é gasta (simplificação).</p></div>
+  <p class="lede">Presencial em 3 parcelas iguais a partir do mês de início de cada ciclo; workshops e turmas on-line no mês em que acontecem. O custo de cada ciclo é distribuído nos mesmos três meses da receita, a comissão é paga no mês da venda e a estrutura fixa, em 12 parcelas (simplificação).</p></div>
 
   <div class="card">
     <h3>Receita mensal e como ela se divide</h3>
     <p style="color:var(--ink2);font-size:13px;margin:4px 0 12px">Passe o mouse ou use Tab nas barras para ver os valores.</p>
-    <div class="legend" style="margin:0 0 8px"><span style="--lg:var(--accent)">Líquido</span><span style="--lg:var(--line2)">Custo direto</span><span style="--lg:var(--warn)">Divulgação nacional</span></div>
-    <svg class="chart" id="chBars" role="img" aria-label="Receita mensal de 2027 dividida em líquido, custo direto e divulgação nacional"></svg>
+    <div class="legend" style="margin:0 0 8px"><span style="--lg:var(--accent)">Líquido</span><span style="--lg:var(--line2)">Custo direto</span><span style="--lg:var(--violet)">Comissão</span><span style="--lg:var(--navy)">Agência, vendedores e estagiária</span><span style="--lg:var(--warn)">Divulgação nacional</span></div>
+    <svg class="chart" id="chBars" role="img" aria-label="Receita mensal de 2027 dividida em líquido, custo direto, comissão, estrutura fixa e divulgação nacional"></svg>
   </div>
 
   <div class="card" style="margin-top:16px">
-    <h3>Líquido acumulado até a meta</h3>
-    <p style="color:var(--ink2);font-size:13px;margin:4px 0 8px">A meta de R$ 1.000.000 só é atingida em dezembro, com R$ 5.525 de folga; em novembro faltam R$ 50.475.</p>
-    <svg class="chart" id="chLine" role="img" aria-label="Líquido acumulado mês a mês até R$ 1.005.525 em dezembro"></svg>
+    <h3>Líquido acumulado contra a meta</h3>
+    <p style="color:var(--ink2);font-size:13px;margin:4px 0 8px">O cenário base cruza a meta apenas em dezembro, com R$ 36.580 de folga; em novembro ainda faltam R$ 2.860.</p>
+    <svg class="chart" id="chLine" role="img" aria-label="Líquido acumulado mês a mês até R$ 1.036.580 em dezembro, acima da meta de R$ 1.000.000"></svg>
   </div>
 
   <div class="grid g2" style="margin-top:16px">
     <div class="card">
       <h3>Margem unitária</h3>
       <div class="scroll"><table style="margin-top:8px">
-        <thead><tr><th></th><th class="n">Receita</th><th class="n">Custo direto</th><th class="n">Divulgação</th><th class="n">Líquido</th></tr></thead>
+        <thead><tr><th></th><th class="n">Receita</th><th class="n">Custo direto</th><th class="n">Comissão</th><th class="n">Mídia</th><th class="n">Líquido</th></tr></thead>
         <tbody>
-          <tr><td>Turma presencial (26 alunos)</td><td class="n">78.000</td><td class="n">19.500</td><td class="n">dentro dos 25%</td><td class="n">58.500</td></tr>
-          <tr><td>Workshop (50 pagantes)</td><td class="n">49.500</td><td class="n">12.375</td><td class="n">dentro dos 25%</td><td class="n">37.125</td></tr>
-          <tr><td>Turma on-line (100 pagantes)</td><td class="n">99.000</td><td class="n">4.950</td><td class="n">20.000</td><td class="n">74.050</td></tr>
+          <tr><td>Turma presencial (26 alunos)</td><td class="n">78.000</td><td class="n">21.560</td><td class="n">7.800</td><td class="n">0</td><td class="n">48.640</td></tr>
+          <tr><td>Workshop (50 pagantes)</td><td class="n">49.500</td><td class="n">12.375</td><td class="n">4.950</td><td class="n">0</td><td class="n">32.175</td></tr>
+          <tr><td>Turma on-line (100 pagantes)</td><td class="n">99.000</td><td class="n">4.950</td><td class="n">0</td><td class="n">20.000</td><td class="n">74.050</td></tr>
         </tbody></table></div>
-      <p style="font-size:12.5px;color:var(--ink3);margin-top:8px">Os R$ 30.000 de marca nacional não estão alocados por produto.</p>
+      <p style="font-size:12.5px;color:var(--ink3);margin-top:8px">Antes da estrutura fixa (R$ 80.400) e dos R$ 30.000 de marca nacional.</p>
     </div>
     <div class="card">
       <h3>Capital de giro</h3>
-      <p style="color:var(--ink2);font-size:14px;margin-top:8px">Captação, local, material e mídia são pagos antes da receita. Prever de R$ 40.000 a R$ 50.000 de capital de giro no início do ano <span class="tag">PREMISSA</span>, além dos R$ 6.048 de captação em nov e dez de 2026.</p>
+      <p style="color:var(--ink2);font-size:14px;margin-top:8px">Local, coffee-break, reembolso Claude, mídia e salários são pagos antes de a receita parcelada entrar. Prever de R$ 60.000 a R$ 70.000 de capital de giro no início do ano <span class="tag">PREMISSA</span>, além de cerca de R$ 13.400 de estrutura em nov e dez de 2026 (agência R$ 7.000, vendedores R$ 4.000 e estagiária R$ 2.400).</p>
     </div>
   </div>
 
@@ -624,7 +700,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 </section>
 
 <section id="okrs">
-  <div class="sec-head"><div class="eyebrow">Seção 8</div><h2>Metas e indicadores</h2></div>
+  <div class="sec-head"><div class="eyebrow">Seção 8</div><h2>Metas e indicadores</h2>
+  <p class="lede">Os resultados abaixo seguem o cenário base do plano adotado.</p></div>
   <div class="seg" role="tablist" aria-label="Trimestre" id="qTabs" style="margin-bottom:16px">
     <button type="button" role="tab" data-q="0" aria-selected="true">T1</button>
     <button type="button" role="tab" data-q="1" aria-selected="false">T2</button>
@@ -637,16 +714,18 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     <table>
       <thead><tr><th>Indicador</th><th class="n">Meta base</th><th>Responsável</th></tr></thead>
       <tbody>
-        <tr><td>Leads presenciais</td><td class="n">371</td><td>Comercial</td></tr>
-        <tr><td>Leads nacionais</td><td class="n">10.000 no ano</td><td>Marketing</td></tr>
-        <tr><td>Conversão lead → matrícula (presencial)</td><td class="n">7%</td><td>Comercial</td></tr>
-        <tr><td>Conversão lead → pagante (on-line)</td><td class="n">3%</td><td>Marketing</td></tr>
-        <tr><td>Matrículas presenciais</td><td class="n">26</td><td>Comercial</td></tr>
+        <tr><td>Leads presenciais</td><td class="n">371</td><td>Vendedores</td></tr>
+        <tr><td>Leads nacionais</td><td class="n">16.667 no ano</td><td>Agência e marketing</td></tr>
+        <tr><td>Conversão lead → matrícula (presencial)</td><td class="n">7%</td><td>Vendedores</td></tr>
+        <tr><td>Conversão lead → pagante (on-line)</td><td class="n">3%</td><td>Agência e marketing</td></tr>
+        <tr><td>Matrículas presenciais</td><td class="n">26</td><td>Vendedores</td></tr>
         <tr><td>Ocupação por turma presencial</td><td class="n">≥ 87%</td><td>Operação</td></tr>
         <tr><td>Pagantes por turma on-line</td><td class="n">100</td><td>Marketing</td></tr>
+        <tr><td>Pagantes por workshop</td><td class="n">50</td><td>Vendedores</td></tr>
         <tr><td>Custo por pagante on-line</td><td class="n">≤ R$ 200</td><td>Marketing</td></tr>
         <tr><td>Receita e líquido</td><td class="n">ver seção 7</td><td>Diretoria</td></tr>
         <tr><td>Ticket médio presencial</td><td class="n">R$ 3.000</td><td>Diretoria</td></tr>
+        <tr><td>Custo por turma presencial</td><td class="n">≤ R$ 21.560</td><td>Operação</td></tr>
         <tr><td>NPS <span class="tag">PREMISSA</span></td><td class="n">≥ 70</td><td>Operação</td></tr>
         <tr><td>Retenção presencial <span class="tag">PREMISSA</span></td><td class="n">≥ 92%</td><td>Operação</td></tr>
         <tr><td>Presença média no on-line <span class="tag">PREMISSA</span></td><td class="n">≥ 60%</td><td>Operação</td></tr>
@@ -662,15 +741,18 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     <table>
       <thead><tr><th>Risco</th><th>Peso</th><th>Gatilho</th><th>Resposta</th></tr></thead>
       <tbody>
-        <tr><td>Ocupação média abaixo de 87%</td><td><span class="pill hi">Alto</span></td><td>Média do ciclo 1 abaixo de 26</td><td>Decidir em abril: ativar a 4ª turma on-line e reduzir bônus</td></tr>
-        <tr><td>Turma on-line abaixo de 100 pagantes</td><td><span class="pill hi">Alto</span></td><td>Menos de 50 inscritos 14 dias antes do início</td><td>Estender a campanha por 1 semana, reforçar parcerias; se menos de 70 em D-3, adiar</td></tr>
-        <tr><td>Custo por lead nacional acima do previsto</td><td><span class="pill hi">Alto</span></td><td>Custo por lead acima de R$ 10 por 7 dias</td><td>Pausar mídia paga, migrar verba para parcerias, aulas abertas e e-mail</td></tr>
-        <tr><td>Definição de "líquido"</td><td><span class="pill hi">Alto</span></td><td>Diretoria entende líquido como após impostos</td><td>Refazer o plano (seção 0)</td></tr>
+        <tr><td>Demanda on-line abaixo de 93 pagantes por turma</td><td><span class="pill hi">Alto</span></td><td>Turma on-line 1 (22/02) fecha com menos de 80 pagantes</td><td>Revisar mídia e parcerias; decidir até 12/04 se mantém as turmas 3, 4 e 5; a folga de R$ 36.580 não cobre perdas maiores</td></tr>
+        <tr><td>Ocupação média abaixo de 82%</td><td><span class="pill hi">Alto</span></td><td>Média do ciclo 1 abaixo de 25</td><td>Cada aluno a menos por turma tira R$ 28.680 do líquido: reforçar vendedores e workshops e acionar a 6ª turma on-line</td></tr>
+        <tr><td>Workshops abaixo de 41 pagantes</td><td><span class="pill hi">Alto</span></td><td>Média das 2 edições de março abaixo de 45</td><td>Reforçar parcerias e vendedores; reavaliar as edições de julho e novembro</td></tr>
+        <tr><td>Captação de cada turma on-line atrasada</td><td><span class="pill hi">Alto</span></td><td>Menos de 50 inscritos 14 dias antes do início</td><td>Estender a campanha por 1 semana, reforçar parcerias; se menos de 70 em D-3, adiar</td></tr>
+        <tr><td>Custo por lead nacional acima do previsto</td><td><span class="pill hi">Alto</span></td><td>Acima de R$ 10 por 7 dias</td><td>Pausar mídia paga, migrar verba para parcerias, aulas abertas e e-mail</td></tr>
         <tr><td>Dependência do facilitador</td><td><span class="pill hi">Alto</span></td><td>Qualquer afastamento</td><td>Facilitador reserva formado até o ciclo 2</td></tr>
+        <tr><td>Agência entrega abaixo do combinado</td><td><span class="pill md">Médio</span></td><td>Menos de 80% do calendário publicado em um mês, ou leads abaixo da meta por 2 meses</td><td>Revisão formal no contrato de 90 dias; plano B de agência cotado</td></tr>
+        <tr><td>Saída de vendedor</td><td><span class="pill md">Médio</span></td><td>Menos de 70% da meta de matrículas em 2 meses</td><td>Reposição em 30 dias; comissão atrelada a metas e carteira documentada no CRM</td></tr>
+        <tr><td>Sobrecarga da estagiária</td><td><span class="pill md">Médio</span></td><td>Pendências de matrícula ou suporte acima de 3 dias</td><td>Automatizar atendimento e matrículas; reforço temporário nas semanas de pico</td></tr>
         <tr><td>Mercado pequeno em São José do Rio Pardo</td><td><span class="pill md">Médio</span></td><td>Ciclo 1 com menos de 20 matrículas</td><td>Unir com a turma de Mococa ou de São João da Boa Vista</td></tr>
-        <tr><td>Ticket real abaixo de R$ 3.000</td><td><span class="pill md">Médio</span></td><td>Média móvel abaixo de R$ 2.900</td><td>Limitar bônus e exigir data de corte</td></tr>
-        <tr><td>Evasão ou baixa presença</td><td><span class="pill md">Médio</span></td><td>Retenção presencial abaixo de 92% ou presença on-line abaixo de 60%</td><td>Contato individual após a 2ª falta; gravações e lembretes no on-line</td></tr>
-        <tr><td>Carga de 4 dias de aula por semana</td><td><span class="pill md">Médio</span></td><td>Semanas com ciclo presencial e turma on-line</td><td>Facilitador reserva assume as segundas on-line, se necessário</td></tr>
+        <tr><td>Ticket abaixo de R$ 3.000</td><td><span class="pill md">Médio</span></td><td>Média móvel abaixo de R$ 2.900</td><td>Limitar bônus e exigir data de corte</td></tr>
+        <tr><td>Evasão ou baixa presença</td><td><span class="pill md">Médio</span></td><td>Retenção presencial abaixo de 92% ou presença on-line abaixo de 60%</td><td>Contato individual após a 2ª falta; gravações e lembretes</td></tr>
       </tbody>
     </table>
   </div>
@@ -678,7 +760,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 <section id="plano90">
   <div class="sec-head"><div class="eyebrow">Seção 10</div><h2>Plano de 90 dias</h2>
-  <p class="lede">Do aval da diretoria ao início do ciclo 2 e da primeira campanha nacional. Marque o que já foi feito; a marcação fica salva neste navegador. Ações que afetam terceiros dependem de aprovação.</p></div>
+  <p class="lede">Do aval da diretoria ao início do ciclo 2 e da primeira campanha nacional, com a contratação da agência e da equipe. Marque o que já foi feito; a marcação fica salva neste navegador. Ações que afetam terceiros dependem de aprovação.</p></div>
   <div class="card">
     <div style="display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--ink2)"><span id="prog-t"></span><span class="mono" id="prog-p"></span></div>
     <div class="meter" style="margin:8px 0 14px;height:10px"><i id="prog-b"></i></div>
@@ -688,13 +770,13 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 <section id="confianca">
   <div class="sec-head"><div class="eyebrow">Seção 11</div><h2>Confiança no plano: 4 em 10</h2>
-  <p class="lede">A conta fecha, mas com R$ 5.525 de folga. Ela depende de 87% de ocupação nas turmas presenciais, 100 pagantes em cada turma on-line a R$ 200 por pagante, de o custo direto do on-line ser mesmo de 5% e de um único facilitador. Nenhum desses números foi calibrado com dados reais da EdusIA, e a demanda nacional por turmas on-line ainda não foi testada.</p></div>
+  <p class="lede">O plano adotado entrega R$ 1.036.580 líquidos no cenário base, com folga de apenas R$ 36.580. Ele depende de 500 pagantes em turmas on-line e 300 em workshops, uma demanda ainda não testada, de custos e comissões ainda sem confirmação e de um único facilitador em 396 horas de aula.</p></div>
   <div class="card">
     <div class="gauge" aria-hidden="true"><u style="left:calc(33% - 2px)"></u></div>
     <div class="meter-l"><span>1</span><span>5</span><span>10</span></div>
     <h3 style="margin:22px 0 4px">O que falta para chegar a 10</h3>
-    <details><summary>Confirmar a definição de líquido</summary><p>Muda o bruto necessário de R$ 1,25 mi para até R$ 1,90 mi.</p></details>
-    <details><summary>Definir o formato da turma on-line</summary><p>Número de encontros, plataforma, certificado e se há crédito para o presencial.</p></details>
+    <details><summary>Testar a demanda antes de comprometer as 5 turmas on-line</summary><p>A turma 1 (22/02) e os workshops de março mostram se os 100 pagantes por turma e os 50 por workshop são realistas. A folga de R$ 36.580 não cobre uma frustração maior.</p></details>
+    <details><summary>Confirmar as premissas de custo</summary><p>Reembolso Claude nas turmas on-line, base da comissão (presencial, workshops e on-line), data de início da equipe, deslocamento e taxa de pagamento do presencial, e se a estagiária tem encargos.</p></details>
     <details><summary>Validar a demanda nacional</summary><p>Um teste de mídia e de aula aberta para medir custo por lead e conversão antes da campanha completa.</p></details>
     <details><summary>Histórico real da EdusIA</summary><p>Turmas, matrículas, conversão do funil, ticket efetivo e custos por turma.</p></details>
     <details><summary>Contagem oficial de empresas</summary><p>Base de CNPJ da Receita Federal para as três cidades, especialmente Mococa.</p></details>
@@ -715,7 +797,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     <p class="ref">MAIS MEI. <b>MEI (Microempreendedor Individual) em São João da Boa Vista, SP</b>. [S. l.]: Mais MEI, [s.d.]. Disponível em: <a href="https://www.maismei.com.br/mei-microempreendedor-individual-sao-joao-da-boa-vista-sp">https://www.maismei.com.br/mei-microempreendedor-individual-sao-joao-da-boa-vista-sp</a>. Acesso em: 22 out. 2026.</p>
     <p class="ref">PROSPECTEI. <b>Empresas em São José do Rio Pardo, SP</b>. [S. l.]: Prospectei, [s.d.]. Disponível em: <a href="https://prospectei.app.br/empresas/cidade/sao-jose-do-rio-pardo-sp/">https://prospectei.app.br/empresas/cidade/sao-jose-do-rio-pardo-sp/</a>. Acesso em: 22 out. 2026.</p>
   </div>
-  <footer>Todo número rastreável: dado informado por Eduardo, fonte citada ou premissa marcada. Dados necessários para refinar o plano: definição de líquido, formato da turma on-line, histórico de turmas e matrículas, funil do CRM, ticket efetivo, resultado de Mogi Guaçu, custo por lead de campanhas anteriores, disponibilidade do facilitador, contagem de CNPJ por cidade, feriados municipais, concorrentes, parceiros e locais.</footer>
+  <footer>Todo número rastreável: dado informado por Eduardo, fonte citada ou premissa marcada. Dados necessários para refinar o plano: confirmação das premissas de custo, histórico de turmas e matrículas, funil do CRM, ticket efetivo, resultado de Mogi Guaçu, custo por lead de campanhas anteriores, disponibilidade do facilitador, contagem de CNPJ por cidade, feriados municipais, concorrentes, parceiros e locais.</footer>
 </section>
 </main>
 </div>
@@ -754,48 +836,58 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   window.addEventListener('scroll',spy,{passive:true});spy();
 
   /* ---------- Simulador ---------- */
+  var K={FAC:6000,LOC:4000,COF:2000,DES:1500,CLA:220,TAXA:0.03,CWS:0.25,CON:0.05,AG:42000,VEN:24000,EST:14400,PRECO:990,VAGAS:30,META:1000000};
+  K.FIXO_TURMA=K.FAC+K.LOC+K.COF+K.DES;
+  K.ESTRUTURA=K.AG+K.VEN+K.EST;
   var PRESETS={
-    cons:{turmas:12,alunos:22,ticket:3000,ws:3,pag:40,on:3,pon:70,custo:25,conl:5,mkt:90000},
-    base:{turmas:12,alunos:26,ticket:3000,ws:3,pag:50,on:3,pon:100,custo:25,conl:5,mkt:90000},
-    otim:{turmas:12,alunos:29,ticket:3000,ws:3,pag:56,on:3,pon:130,custo:25,conl:5,mkt:90000},
-    alav:{turmas:12,alunos:26,ticket:3000,ws:3,pag:50,on:4,pon:100,custo:25,conl:5,mkt:110000}
+    cons:{turmas:12,alunos:22,ticket:3000,ws:6,pag:40,on:5,pon:70,com:10,mkt:130000},
+    base:{turmas:12,alunos:26,ticket:3000,ws:6,pag:50,on:5,pon:100,com:10,mkt:130000},
+    otim:{turmas:12,alunos:29,ticket:3000,ws:6,pag:56,on:5,pon:130,com:10,mkt:130000},
+    ant:{turmas:12,alunos:26,ticket:3000,ws:3,pag:50,on:3,pon:100,com:10,mkt:90000}
   };
-  var META=1000000,PRECO=990,VAGAS=30;
-  var ids=['turmas','alunos','ticket','ws','pag','on','pon','custo','conl','mkt'];
+  var ids=['turmas','alunos','ticket','ws','pag','on','pon','com','mkt'];
   var inp={},out={};
   ids.forEach(function(k){inp[k]=$('#i-'+k);out[k]=$('#o-'+k)});
   function readSim(){var v={};ids.forEach(function(k){v[k]=parseFloat(inp[k].value)});return v}
+  function model(v){
+    var mat=v.turmas*v.alunos, P=mat*v.ticket, W=v.ws*v.pag*K.PRECO, O=v.on*v.pon*K.PRECO;
+    var cp=v.turmas*K.FIXO_TURMA+mat*K.CLA+P*K.TAXA, cw=W*K.CWS, co=O*K.CON;
+    var cm=(P+W)*v.com/100;
+    var liq=P+W+O-cp-cw-co-cm-K.ESTRUTURA-v.mkt;
+    var slope=v.turmas*(v.ticket*(1-K.TAXA-v.com/100)-K.CLA);
+    var konst=W*(1-K.CWS-v.com/100)+O*(1-K.CON)-v.turmas*K.FIXO_TURMA-K.ESTRUTURA-v.mkt;
+    return {mat:mat,P:P,W:W,O:O,bruto:P+W+O,diretos:cp+cw+co,cm:cm,liq:liq,need:slope>0?(K.META-konst)/slope:0};
+  }
   function calc(){
-    var v=readSim();
-    var mat=v.turmas*v.alunos, rt=mat*v.ticket, rw=v.ws*v.pag*PRECO, ro=v.on*v.pon*PRECO;
-    var bruto=rt+rw+ro, custo=(rt+rw)*v.custo/100+ro*v.conl/100, liq=bruto-custo-v.mkt;
+    var v=readSim(),m=model(v);
     out.turmas.textContent=nf(v.turmas);
-    out.alunos.textContent=nf(v.alunos,1)+' ('+nf(v.alunos/VAGAS*100)+'%)';
+    out.alunos.textContent=nf(v.alunos,1)+' ('+nf(v.alunos/K.VAGAS*100)+'%)';
     out.ticket.textContent=brl(v.ticket);
     out.ws.textContent=nf(v.ws);
     out.pag.textContent=nf(v.pag);
     out.on.textContent=nf(v.on);
     out.pon.textContent=nf(v.pon);
-    out.custo.textContent=nf(v.custo)+'%';out.conl.textContent=nf(v.conl)+'%';
+    out.com.textContent=nf(v.com)+'%';
     out.mkt.textContent=brl(v.mkt);
-    $('#r-liq').textContent=brl(liq);
-    $('#r-mat').textContent=nf(mat);
-    $('#r-ocu').textContent=nf(v.alunos/VAGAS*100,1)+'%';
-    $('#r-rt').textContent=brl(rt);
-    $('#r-rw').textContent=brl(rw);
-    $('#r-ro').textContent=brl(ro);
-    $('#r-bruto').textContent=brl(bruto);
-    $('#r-custo').textContent=brl(custo);
+    $('#r-liq').textContent=brl(m.liq);
+    $('#r-mat').textContent=nf(m.mat);
+    $('#r-ocu').textContent=nf(v.alunos/K.VAGAS*100,1)+'%';
+    $('#r-rt').textContent=brl(m.P);
+    $('#r-rw').textContent=brl(m.W);
+    $('#r-ro').textContent=brl(m.O);
+    $('#r-bruto').textContent=brl(m.bruto);
+    $('#r-custo').textContent=brl(m.diretos);
+    $('#r-cm').textContent=brl(m.cm);
+    $('#r-est').textContent=brl(K.ESTRUTURA);
     $('#r-mk').textContent=brl(v.mkt);
-    var need=v.turmas>0?((((META+v.mkt)-ro*(1-v.conl/100))/(1-v.custo/100))-rw)/(v.turmas*v.ticket):0;
-    var nEl=$('#r-need');nEl.textContent=nf(need,1)+(need>VAGAS?' (acima de 30)':'');
-    nEl.style.color=need>VAGAS?'var(--bad)':'';
-    var scale=Math.max(META*1.25,liq*1.05);
-    var fill=$('#m-fill');fill.style.width=Math.max(0,Math.min(100,liq/scale*100))+'%';fill.className=liq>=META?'':'under';
-    $('#m-goal').style.left=(META/scale*100)+'%';
-    var diff=liq-META,vd=$('#verdict');
+    var nEl=$('#r-need');nEl.textContent=nf(m.need,1)+(m.need>K.VAGAS?' (acima de 30)':'');
+    nEl.style.color=m.need>K.VAGAS?'var(--bad)':'';
+    var scale=Math.max(K.META*1.25,m.liq*1.05);
+    var fill=$('#m-fill');fill.style.width=Math.max(0,Math.min(100,m.liq/scale*100))+'%';fill.className=m.liq>=K.META?'':'under';
+    $('#m-goal').style.left=(K.META/scale*100)+'%';
+    var diff=m.liq-K.META,vd=$('#verdict');
     if(diff>=0){vd.innerHTML='<span class="pill lo">Meta atingida, folga de '+brl(diff)+'</span>'}
-    else if(need>VAGAS){vd.innerHTML='<span class="pill hi">Faltam '+brl(-diff)+'. Com estes parâmetros, só com outra fonte de receita</span>'}
+    else if(m.need>K.VAGAS){vd.innerHTML='<span class="pill hi">Faltam '+brl(-diff)+'. Só com mais turmas on-line, workshops ou preço</span>'}
     else{vd.innerHTML='<span class="pill md">Faltam '+brl(-diff)+' para a meta</span>'}
     $$('#presets button').forEach(function(b){var p=PRESETS[b.dataset.p];var same=ids.every(function(k){return Math.abs(p[k]-v[k])<0.001});b.setAttribute('aria-pressed',String(same))});
   }
@@ -847,8 +939,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     [['2027-01-21','2027-03-18','pula 11/02'],['2027-04-01','2027-05-20',''],['2027-08-05','2027-09-23',''],['2027-10-07','2027-11-25','']]
   ];
   var CN=['Mococa','São João da Boa Vista','São José do Rio Pardo'],CD=['terça','quarta','quinta'];
-  var WS=[['2027-03-20',0,'ciclo 2 de Mococa'],['2027-07-17',2,'ciclo 3 de São José do Rio Pardo'],['2027-11-13',1,'lista de espera de 2028']];
-  var ON=[['2027-06-07','2027-06-28','07, 14, 21 e 28/06','12/04 a 04/06'],['2027-09-13','2027-10-04','13, 20 e 27/09 e 04/10','12/07 a 10/09'],['2027-11-08','2027-12-06','08, 22 e 29/11 e 06/12 (pula 15/11)','20/09 a 05/11']];
+  var WS=[['2027-03-13',0,'ciclo 2 de Mococa'],['2027-03-20',1,'ciclo 2 de São João da Boa Vista'],['2027-07-10',2,'ciclo 3 de São José do Rio Pardo'],['2027-07-17',0,'ciclo 3 de Mococa'],['2027-11-06',1,'lista de espera de 2028'],['2027-11-13',2,'lista de espera de 2028']];
+  var ON=[['2027-02-22','2027-03-29','22/02, 01, 08, 15, 22 e 29/03','04/01 a 19/02'],['2027-04-26','2027-05-31','26/04, 03, 10, 17, 24 e 31/05','01/03 a 23/04'],['2027-06-14','2027-07-19','14, 21 e 28/06, 05, 12 e 19/07','26/04 a 11/06'],['2027-09-06','2027-10-11','06, 13, 20 e 27/09, 04 e 11/10','12/07 a 03/09'],['2027-11-01','2027-12-13','01, 08, 22 e 29/11, 06 e 13/12 (pula 15/11)','13/09 a 29/10']];
   var HOL=[['2027-02-09','Carnaval'],['2027-02-10','Carnaval'],['2027-03-26','Sexta-feira Santa'],['2027-04-21','Tiradentes'],['2027-05-27','Corpus Christi'],['2027-09-07','Independência'],['2027-10-12','Nossa Sra. Aparecida'],['2027-11-02','Finados'],['2027-11-15','Proclamação da República']];
   var MN=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
   var calF='all';
@@ -883,7 +975,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     }
     g.innerHTML=axis+rows;
     $$('.bar[data-ci]',g).forEach(function(b){var c=CY[+b.dataset.ci][+b.dataset.k];bindTip(b,'<b>'+CN[+b.dataset.ci]+' · ciclo '+(+b.dataset.k+1)+'</b><br>'+fd(c[0])+' a '+fd(c[1])+' (8 encontros)'+(c[2]?'<br>'+c[2]:''))});
-    $$('.bar.on',g).forEach(function(b){var o=ON[+b.dataset.o];bindTip(b,'<b>Turma on-line '+(+b.dataset.o+1)+'</b><br>Segundas: '+o[2]+'<br>Campanha: '+o[3])});
+    $$('.bar.on',g).forEach(function(b){var o=ON[+b.dataset.o];bindTip(b,'<b>Turma on-line '+(+b.dataset.o+1)+'</b><br>6 encontros, segundas: '+o[2]+'<br>Campanha: '+o[3])});
     $$('.bar.ws',g).forEach(function(b){var w=WS[+b.dataset.w];bindTip(b,'<b>Workshop '+CN[w[1]]+'</b><br>Sábado '+fd(w[0])+'<br>Alimenta o '+w[2])});
   }
   $$('#calFilter button').forEach(function(b){b.addEventListener('click',function(){calF=b.dataset.f;$$('#calFilter button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});drawGantt()})});
@@ -896,10 +988,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       h+='</tr>';
     }
     h+='<tr class="tot"><td>Workshops</td>';
-    var byCity=[null,null,null];WS.forEach(function(w){byCity[w[1]]=w});
-    for(var c=0;c<3;c++){var w=byCity[c];h+='<td class="num">Sáb '+fd(w[0])+'<br><small style="color:var(--ink3);font-family:var(--f-body)">'+w[2]+'</small></td>'}
+    for(var c=0;c<3;c++){h+='<td class="num">'+WS.filter(function(w){return w[1]===c}).map(function(w){return 'Sáb '+fd(w[0])+'<br><small style="color:var(--ink3);font-family:var(--f-body)">'+w[2]+'</small>'}).join('<br>')+'</td>'}
     $('#calTable').innerHTML=h+'</tr></tbody>';
-    var o='<thead><tr><th>Turma</th><th>Início</th><th>Fim</th><th>Encontros (segundas)</th><th>Campanha nacional</th></tr></thead><tbody>';
+    var o='<thead><tr><th>Turma</th><th>Início</th><th>Fim</th><th>6 encontros (segundas)</th><th>Campanha nacional</th></tr></thead><tbody>';
     ON.forEach(function(x,i){o+='<tr><td><b>'+(i+1)+'</b></td><td class="num">'+fd(x[0])+'</td><td class="num">'+fd(x[1])+'</td><td>'+x[2]+'</td><td class="num">'+x[3]+'</td></tr>'});
     $('#onTable').innerHTML=o+'</tbody>';
   })();
@@ -910,46 +1001,43 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     $(el).innerHTML=items.map(function(i){return '<i style="flex:'+i.v+' 1 0;background:'+i.c+'" title="'+i.l+'"></i>'}).join('');
     $(dotsEl).innerHTML=items.map(function(i){return '<div><b class="sw" style="background:'+i.c+'"></b><span>'+i.l+'</span><span class="num">'+brl(i.v)+' · '+nf(i.v/tot*100)+'%</span></div>'}).join('');
   }
-  stackOf('#turmaStack','#turmaDots',[
-    {l:'Facilitação (24 h × R$ 250)',v:6000,c:'var(--navy)'},
-    {l:'Material (R$ 150 por aluno)',v:3900,c:'#6C8FC0'},
-    {l:'Local (8 × R$ 300)',v:2400,c:'var(--violet)'},
-    {l:'Taxa de pagamento (3%)',v:2340,c:'var(--ink3)'},
-    {l:'Deslocamento',v:1500,c:'var(--line2)'},
-    {l:'Marketing que sobra (R$ 129 por aluno)',v:3360,c:'var(--accent)'}
-  ]);
   stackOf('#nacStack','#nacDots',[
-    {l:'Mídia paga nacional (Meta, Google, LinkedIn)',v:42000,c:'var(--rose)'},
-    {l:'Conteúdo e vídeo',v:12000,c:'var(--navy)'},
-    {l:'Aulas abertas ao vivo',v:9000,c:'var(--accent)'},
-    {l:'Parcerias e influenciadores B2B',v:9000,c:'var(--violet)'},
+    {l:'Mídia paga nacional (Meta, Google, LinkedIn)',v:70000,c:'var(--rose)'},
+    {l:'Produção de vídeo e conteúdo (além da agência)',v:12000,c:'var(--navy)'},
+    {l:'Aulas abertas ao vivo',v:15000,c:'var(--accent)'},
+    {l:'Parcerias e influenciadores B2B',v:15000,c:'var(--violet)'},
     {l:'Assessoria de imprensa e PR',v:9000,c:'var(--warn)'},
     {l:'Materiais ricos e iscas digitais',v:5000,c:'var(--ink3)'},
     {l:'Automação, e-mail e CRM',v:4000,c:'var(--line2)'}
   ]);
 
   /* ---------- Financeiro ---------- */
-  var REC=[78000,78000,205500,78000,78000,99000,49500,78000,177000,156000,226500,78000];
-  var CUS=[19500,19500,51375,19500,19500,4950,12375,19500,24450,39000,36825,19500];
-  var MKT=[2500,2500,2500,12500,12500,2500,12500,12500,12500,12500,2500,2500];
-  var LIQ=REC.map(function(r,i){return r-CUS[i]-MKT[i]});
+  var REC=[78000,177000,255000,177000,78000,99000,99000,78000,177000,156000,276000,78000];
+  var CUS=[21560,26510,67870,26510,21560,4950,24750,21560,26510,43120,51260,21560];
+  var COM=[7800,7800,25500,7800,7800,0,9900,7800,7800,15600,17700,7800];
+  var EST=[6700,6700,6700,6700,6700,6700,6700,6700,6700,6700,6700,6700];
+  var MKT=[14500,10500,14500,14500,14500,6500,10500,14500,14500,10500,2500,2500];
+  var LIQ=REC.map(function(r,i){return r-CUS[i]-COM[i]-EST[i]-MKT[i]});
   var ACU=[];LIQ.reduce(function(s,v,i){ACU[i]=s+v;return s+v},0);
-  var NOTE=['Ciclo 1','Ciclo 1','Ciclos 1 e 2 · workshop Mococa','Ciclo 2','Ciclo 2','On-line 1','Workshop S. J. Rio Pardo','Ciclo 3','Ciclo 3 · on-line 2','Ciclos 3 e 4','Ciclo 4 · on-line 3 · workshop S. J. Boa Vista','Ciclo 4'];
+  var NOTE=['Ciclo 1','Ciclo 1 · on-line 1','Ciclos 1 e 2 · 2 workshops (Mococa e S. J. Boa Vista)','Ciclo 2 · on-line 2','Ciclo 2','On-line 3','2 workshops (S. J. Rio Pardo e Mococa)','Ciclo 3','Ciclo 3 · on-line 4','Ciclos 3 e 4','Ciclo 4 · on-line 5 · 2 workshops (S. J. Boa Vista e S. J. Rio Pardo)','Ciclo 4'];
   (function(){
-    var svg=$('#chBars'),W=900,H=330,L=54,R=10,T=14,B=34,pw=W-L-R,ph=H-T-B,max=250000;
+    var svg=$('#chBars'),W=900,H=330,L=54,R=10,T=14,B=34,pw=W-L-R,ph=H-T-B,max=300000;
     svg.setAttribute('viewBox','0 0 '+W+' '+H);
     var s='';
-    [0,50000,100000,150000,200000,250000].forEach(function(t){var y=T+ph-t/max*ph;s+='<line class="grid-l" x1="'+L+'" x2="'+(W-R)+'" y1="'+y+'" y2="'+y+'"/><text x="'+(L-8)+'" y="'+(y+4)+'" text-anchor="end">'+(t/1000)+'k</text>'});
-    var bw=pw/12;
+    [0,50000,100000,150000,200000,250000,300000].forEach(function(t){var y=T+ph-t/max*ph;s+='<line class="grid-l" x1="'+L+'" x2="'+(W-R)+'" y1="'+y+'" y2="'+y+'"/><text x="'+(L-8)+'" y="'+(y+4)+'" text-anchor="end">'+(t/1000)+'k</text>'});
+    var bw=pw/12,SEG=[['LIQ','var(--accent)'],['CUS','var(--line2)'],['COM','var(--violet)'],['EST','var(--navy)'],['MKT','var(--warn)']];
+    var ARR={LIQ:LIQ,CUS:CUS,COM:COM,EST:EST,MKT:MKT};
     REC.forEach(function(r,i){
-      var x=L+i*bw+bw*0.14,w=bw*0.72,hl=LIQ[i]/max*ph,hc=CUS[i]/max*ph,hm=MKT[i]/max*ph,y0=T+ph;
-      s+='<g class="mb" tabindex="0" data-i="'+i+'"><rect x="'+x+'" y="'+(y0-hl)+'" width="'+w+'" height="'+(hl-1)+'" rx="3" fill="var(--accent)"/><rect x="'+x+'" y="'+(y0-hl-hc)+'" width="'+w+'" height="'+(hc-1)+'" rx="3" fill="var(--line2)"/><rect x="'+x+'" y="'+(y0-hl-hc-hm)+'" width="'+w+'" height="'+(hm-1)+'" rx="3" fill="var(--warn)"/><rect x="'+(L+i*bw)+'" y="'+T+'" width="'+bw+'" height="'+ph+'" fill="transparent"/></g>';
+      var x=L+i*bw+bw*0.14,w=bw*0.72,y=T+ph;
+      s+='<g class="mb" tabindex="0" data-i="'+i+'">';
+      SEG.forEach(function(sg){var h=ARR[sg[0]][i]/max*ph;y-=h;s+='<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+Math.max(h-1,0)+'" rx="3" fill="'+sg[1]+'"/>'});
+      s+='<rect x="'+(L+i*bw)+'" y="'+T+'" width="'+bw+'" height="'+ph+'" fill="transparent"/></g>';
       s+='<text x="'+(x+w/2)+'" y="'+(H-12)+'" text-anchor="middle">'+MN[i]+'</text>';
-      if(r>=150000)s+='<text x="'+(x+w/2)+'" y="'+(y0-hl-hc-hm-6)+'" text-anchor="middle" style="fill:var(--ink)">'+nf(r/1000,0)+'k</text>';
+      if(r>=150000)s+='<text x="'+(x+w/2)+'" y="'+(y-6)+'" text-anchor="middle" style="fill:var(--ink)">'+nf(r/1000,0)+'k</text>';
     });
     s+='<line class="ax" x1="'+L+'" x2="'+(W-R)+'" y1="'+(T+ph)+'" y2="'+(T+ph)+'"/>';
     svg.innerHTML=s;
-    $$('.mb',svg).forEach(function(g){var i=+g.dataset.i;bindTip(g,'<b>'+MN[i].toUpperCase()+'/2027</b><br>Receita '+brl(REC[i])+'<br>Custo direto '+brl(CUS[i])+'<br>Divulgação nacional '+brl(MKT[i])+'<br>Líquido '+brl(LIQ[i])+'<br>'+NOTE[i])});
+    $$('.mb',svg).forEach(function(g){var i=+g.dataset.i;bindTip(g,'<b>'+MN[i].toUpperCase()+'/2027</b><br>Receita '+brl(REC[i])+'<br>Custo direto '+brl(CUS[i])+'<br>Comissão '+brl(COM[i])+'<br>Agência, vendedores e estagiária '+brl(EST[i])+'<br>Divulgação nacional '+brl(MKT[i])+'<br>Líquido '+brl(LIQ[i])+'<br>'+NOTE[i])});
   })();
   (function(){
     var svg=$('#chLine'),W=900,H=300,L=62,R=24,T=16,B=34,pw=W-L-R,ph=H-T-B,max=1100000;
@@ -961,23 +1049,23 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
     s+='<polygon points="'+X(0)+','+Yv(0)+' '+pts+' '+X(11)+','+Yv(0)+'" fill="var(--accent)" opacity=".14"/>';
     s+='<polyline points="'+pts+'" fill="none" stroke="var(--accent)" stroke-width="2.5" stroke-linejoin="round"/>';
     ACU.forEach(function(v,i){s+='<circle cx="'+X(i)+'" cy="'+Yv(v)+'" r="'+(i===11?6:4)+'" fill="var(--accent)" stroke="var(--surface)" stroke-width="2" tabindex="0" data-i="'+i+'"/>';s+='<text x="'+X(i)+'" y="'+(H-12)+'" text-anchor="middle">'+MN[i]+'</text>'});
-    s+='<text x="'+(X(11)-10)+'" y="'+(Yv(ACU[11])+22)+'" text-anchor="end" style="fill:var(--ink)">R$ 1.005.525</text>';
+    s+='<text x="'+(X(11)-10)+'" y="'+(Yv(ACU[11])+22)+'" text-anchor="end" style="fill:var(--ink)">R$ 1.036.580</text>';
     svg.innerHTML=s;
-    $$('circle',svg).forEach(function(c){var i=+c.dataset.i;bindTip(c,'<b>'+MN[i].toUpperCase()+'</b><br>Acumulado '+brl(ACU[i])+'<br>'+(ACU[i]>=1e6?'Meta atingida':'Faltam '+brl(1e6-ACU[i])))});
+    $$('circle',svg).forEach(function(c){var i=+c.dataset.i;bindTip(c,'<b>'+MN[i].toUpperCase()+'</b><br>Acumulado '+brl(ACU[i])+'<br>Faltam '+brl(1e6-ACU[i])+' para a meta')});
   })();
   (function(){
-    var h='<thead><tr><th>Mês</th><th class="n">Receita</th><th class="n">Custo direto</th><th class="n">Divulgação</th><th class="n">Líquido</th><th class="n">Acumulado</th><th>Origem</th></tr></thead><tbody>';
-    REC.forEach(function(r,i){h+='<tr><td>'+MN[i]+'</td><td class="n">'+nf(r)+'</td><td class="n">'+nf(CUS[i])+'</td><td class="n">'+nf(MKT[i])+'</td><td class="n">'+nf(LIQ[i])+'</td><td class="n">'+nf(ACU[i])+'</td><td>'+NOTE[i]+'</td></tr>'});
-    h+='<tr class="tot"><td>Total</td><td class="n">1.381.500</td><td class="n">285.975</td><td class="n">90.000</td><td class="n">1.005.525</td><td></td><td></td></tr></tbody>';
+    var h='<thead><tr><th>Mês</th><th class="n">Receita</th><th class="n">Custo direto</th><th class="n">Comissão</th><th class="n">Estrutura</th><th class="n">Divulgação</th><th class="n">Líquido</th><th class="n">Acumulado</th><th>Origem</th></tr></thead><tbody>';
+    REC.forEach(function(r,i){h+='<tr><td>'+MN[i]+'</td><td class="n">'+nf(r)+'</td><td class="n">'+nf(CUS[i])+'</td><td class="n">'+nf(COM[i])+'</td><td class="n">'+nf(EST[i])+'</td><td class="n">'+nf(MKT[i])+'</td><td class="n">'+nf(LIQ[i])+'</td><td class="n">'+nf(ACU[i])+'</td><td>'+NOTE[i]+'</td></tr>'});
+    h+='<tr class="tot"><td>Total</td><td class="n">1.728.000</td><td class="n">357.720</td><td class="n">123.300</td><td class="n">80.400</td><td class="n">130.000</td><td class="n">1.036.580</td><td></td><td></td></tr></tbody>';
     $('#finTable').innerHTML=h;
   })();
 
   /* ---------- OKRs ---------- */
   var Q=[
-    {o:'Abrir o ano com 3 turmas cheias e validar o modelo',r:['78 matrículas no ciclo 1 até 15/01 e 78 no ciclo 2 até 23/03','Workshop de Mococa com 50 pagantes (20/03)','Plataforma on-line escolhida e testada até fevereiro','Líquido acumulado de R$ 263.625 até março'],w:'Diretoria e Comercial'},
-    {o:'Lançar a divulgação nacional e a primeira turma on-line',r:['Campanha nacional no ar desde 12/04, com custo por lead de até R$ 6','Turma on-line 1 com 100 pagantes (07/06)','Líquido acumulado de R$ 447.175 até junho'],w:'Marketing e Comercial'},
-    {o:'Escalar o on-line e lotar o ciclo 3',r:['78 matrículas no ciclo 3 (início em 03/08)','Workshop de São José do Rio Pardo com 50 pagantes (17/07)','Turma on-line 2 com 100 pagantes (13/09)','NPS de 70 ou mais','Líquido acumulado de R$ 657.850 até setembro'],w:'Comercial e Operação'},
-    {o:'Fechar a meta e preparar 2028',r:['78 matrículas no ciclo 4 e turma on-line 3 com 100 pagantes (08/11)','Workshop de São João da Boa Vista com 50 pagantes (13/11)','Líquido do ano de R$ 1.000.000 ou mais','Lista de espera aberta para 2028'],w:'Diretoria'}
+    {o:'Abrir o ano com 3 turmas cheias, a equipe pronta e a demanda on-line testada',r:['Agência, 2 vendedores e estagiária contratados até 15/12/2026','78 matrículas no ciclo 1 até 15/01 e 78 no ciclo 2 até 23/03','Turma on-line 1 (22/02) com 100 pagantes: teste da demanda nacional','Workshops de Mococa (13/03) e São João da Boa Vista (20/03) com 50 pagantes cada','Líquido acumulado de R$ 293.360 até março'],w:'Diretoria, vendedores e marketing'},
+    {o:'Sustentar a captação nacional e lotar o ciclo 3',r:['Turma on-line 2 (26/04) e turma on-line 3 (14/06) com 100 pagantes cada','Campanhas nacionais com custo por lead de até R$ 6','Relatório mensal da agência com leads por cidade','Líquido acumulado de R$ 523.140 até junho'],w:'Marketing e agência'},
+    {o:'Escalar o on-line e lotar o ciclo 3',r:['78 matrículas no ciclo 3 (início em 03/08)','Workshops de São José do Rio Pardo (10/07) e Mococa (17/07) com 50 pagantes cada','Turma on-line 4 (06/09) com 100 pagantes','NPS de 70 ou mais','Líquido acumulado de R$ 719.220 até setembro'],w:'Vendedores e Operação'},
+    {o:'Fechar o ano e preparar 2028',r:['78 matrículas no ciclo 4 e turma on-line 5 (01/11) com 100 pagantes','Workshops de São João da Boa Vista (06/11) e São José do Rio Pardo (13/11) com 50 pagantes cada','Líquido do ano de R$ 1.036.580 (meta de R$ 1.000.000)','Lista de espera aberta para 2028'],w:'Diretoria'}
   ];
   function drawQ(i){
     var q=Q[i];
@@ -988,28 +1076,33 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
   /* ---------- Plano de 90 dias ---------- */
   var T90=[
-    ['Até 29/10/2026','Confirmar a definição de "líquido", a meta e o formato da turma on-line (encontros, plataforma, crédito para o presencial)','Diretoria','Aprovação'],
+    ['Até 29/10/2026','Aprovar o plano (5 turmas on-line e 6 workshops) e confirmar as premissas de custo','Diretoria','Aprovação'],
     ['Até 05/11/2026','Validar o número de empresas por cidade na base de CNPJ da Receita Federal','Comercial',''],
-    ['Até 10/11/2026','Contatar as 3 associações; fechar locais e datas das aulas-experimento','Diretoria','Contato externo: aprovar antes'],
-    ['Até 15/11/2026','Configurar o funil e os indicadores no CRM, presencial e nacional','Comercial',''],
-    ['Até 20/11/2026','Produzir a página de captação, o diagnóstico DISC e o material de divulgação','Marketing',''],
-    ['23/11 a 15/12/2026','Aulas-experimento e diagnósticos em cada cidade','Comercial e Eduardo','Convites e disparos: aprovar antes'],
-    ['01/12/2026 a 15/01/2027','Captação do ciclo 1: conteúdo diário, anúncios locais, indicação','Marketing','Publicações: aprovar antes'],
+    ['Até 10/11/2026','Contatar as 3 associações; fechar locais (R$ 2.000 por mês) e datas das aulas-experimento','Diretoria','Contato externo: aprovar antes'],
+    ['Até 15/11/2026','Pedir propostas a pelo menos 3 agências de marketing, com o escopo mínimo de contrato','Diretoria','Contato externo: aprovar antes'],
+    ['Até 20/11/2026','Fechar a agência (R$ 3.500 por mês) e iniciar o briefing e o calendário editorial','Diretoria','Contrato: aprovar antes'],
+    ['Até 30/11/2026','Selecionar e contratar os 2 vendedores e a estagiária; formalizar regras de comissão (10%) e de reembolso Claude (R$ 110 por mês por aluno)','Diretoria','Contratação: aprovar antes'],
+    ['Até 30/11/2026','Configurar o funil e os indicadores no CRM, presencial e nacional, e escolher a plataforma on-line (a turma 1 começa em 22/02)','Comercial',''],
+    ['23/11 a 15/12/2026','Aulas-experimento e diagnósticos DISC em cada cidade','Vendedores e Eduardo','Convites e disparos: aprovar antes'],
+    ['01/12/2026 a 15/01/2027','Captação do ciclo 1: vendedores, conteúdo diário da agência, indicação','Vendedores e agência','Publicações: aprovar antes'],
     ['15/12/2026','Checkpoint: 39 matrículas confirmadas no ciclo 1 (50% da meta de 78)','Comercial',''],
+    ['04/01/2027','Iniciar a campanha nacional da turma on-line 1 (aulas em 22/02), com 2 aulas abertas ao vivo entre 01 e 19/02','Marketing e agência','Anúncios e contatos: aprovar antes'],
     ['08/01/2027','Checkpoint: 70 matrículas confirmadas; decidir se adia o início em 2 semanas','Diretoria',''],
     ['15/01/2027','Corte de matrícula do ciclo 1','Comercial',''],
     ['19 a 21/01/2027','Início das 3 turmas do ciclo 1','Operação',''],
-    ['01/02/2027','Iniciar a captação do ciclo 2 e abrir a venda do workshop de Mococa (20/03)','Comercial','Divulgação: aprovar antes'],
-    ['15/02/2027','Escolher a plataforma on-line, contratar suporte e definir o facilitador reserva','Diretoria','Aprovação'],
-    ['01/03/2027','Montar a base nacional: página da turma on-line, diagnóstico DISC on-line, automação de e-mail','Marketing','Publicação: aprovar antes'],
-    ['20/03/2027','Workshop de Mococa','Operação',''],
+    ['01/02/2027','Iniciar a captação do ciclo 2 e abrir a venda dos workshops de março (Mococa em 13/03 e São João da Boa Vista em 20/03)','Vendedores','Divulgação: aprovar antes'],
+    ['15/02/2027','Definir o facilitador reserva e treiná-lo para as segundas on-line','Diretoria','Aprovação'],
+    ['22/02/2027','Início da turma on-line 1 (6 encontros, às segundas)','Operação',''],
+    ['01/03/2027','Iniciar a campanha nacional da turma on-line 2 (aulas em 26/04)','Marketing e agência','Anúncios: aprovar antes'],
+    ['13/03/2027','Workshop de Mococa','Operação',''],
+    ['20/03/2027','Workshop de São João da Boa Vista','Operação',''],
     ['30/03/2027','Início do ciclo 2','Operação',''],
-    ['12/04/2027','Lançar a campanha nacional da turma on-line 1 (aulas em 07/06) e iniciar o balanço do T1','Marketing e Diretoria','Anúncios e contatos: aprovar antes']
+    ['12/04/2027','Balanço do T1: pagantes da turma on-line 1 e dos workshops de março; decidir se mantém as turmas on-line 3, 4 e 5','Diretoria','Aprovação']
   ];
-  var done={};try{done=JSON.parse(store.get('edusia-90-v3')||'{}')}catch(e){}
+  var done={};try{done=JSON.parse(store.get('edusia-90-v5')||'{}')}catch(e){}
   function draw90(){
     $('#checks').innerHTML=T90.map(function(t,i){return '<div class="check'+(done[i]?' done':'')+'"><input type="checkbox" id="ck'+i+'" data-i="'+i+'"'+(done[i]?' checked':'')+'><label for="ck'+i+'"><span class="when">'+t[0]+'</span><span class="tx">'+t[1]+'</span><span class="meta">'+t[2]+(t[3]?' · '+t[3]:'')+'</span></label></div>'}).join('');
-    $$('#checks input').forEach(function(c){c.addEventListener('change',function(){done[c.dataset.i]=c.checked;store.set('edusia-90-v3',JSON.stringify(done));draw90()})});
+    $$('#checks input').forEach(function(c){c.addEventListener('change',function(){done[c.dataset.i]=c.checked;store.set('edusia-90-v5',JSON.stringify(done));draw90()})});
     var n=T90.filter(function(_,i){return done[i]}).length;
     $('#prog-t').textContent=n+' de '+T90.length+' ações concluídas';
     $('#prog-p').textContent=nf(n/T90.length*100)+'%';
