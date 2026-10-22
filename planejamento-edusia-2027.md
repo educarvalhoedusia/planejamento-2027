@@ -6,16 +6,16 @@
 
 ## 0. Definição de líquido e premissas
 
-**Líquido = receita bruta − custo direto de 25% (turmas e workshops) − R$ 90.000 de divulgação nacional [PREMISSA].** O marketing local das turmas presenciais e dos workshops fica dentro dos 25%. Impostos e estrutura fixa ficam de fora.
+**Líquido = receita bruta − custo direto de 25% (turmas presenciais e workshops) − custo direto de 5% (turmas on-line) − R$ 90.000 de divulgação nacional [PREMISSA].** O marketing local das turmas presenciais e dos workshops fica dentro dos 25%. Impostos e estrutura fixa ficam de fora.
 
-Bruto necessário: (R$ 1.000.000 + R$ 90.000) ÷ 0,75 = **R$ 1.453.333**.
+Bruto necessário: **R$ 1.374.133**, com R$ 297.000 de receita on-line (0,75 × bruto + 0,20 × receita on-line − R$ 90.000 = R$ 1.000.000).
 
 | Se "líquido" significar... | Bruto necessário | Cabe na capacidade de R$ 1.525.500? |
 |---|---|---|
-| Receita − 25% − R$ 90.000 de divulgação (adotado) | R$ 1.453.333 | Sim, com 93% de ocupação |
-| Divulgação nacional dentro dos 25% | R$ 1.333.333 | Sim, com 82% de ocupação |
-| Adotado, mais 8% de impostos [PREMISSA] | R$ 1.626.866 | Não |
-| Adotado, mais impostos e R$ 240.000 de estrutura [PREMISSA] | R$ 1.985.075 | Não |
+| Receita − 25% (presencial e workshops) − 5% (on-line) − R$ 90.000 de divulgação (adotado) | R$ 1.374.133 | Sim, com 86% de ocupação |
+| Sem descontar os R$ 90.000 (se já estiverem nos 5% do on-line) | R$ 1.254.133 | Sim, com 75% de ocupação |
+| Adotado, mais 8% de impostos [PREMISSA] | R$ 1.538.209 | Não |
+| Adotado, mais impostos e R$ 240.000 de estrutura [PREMISSA] | R$ 1.896.418 | Não |
 
 A capacidade de R$ 1.525.500 considera 12 turmas lotadas (30 alunos), 3 workshops de 50 pagantes e 3 turmas on-line de 100 pagantes.
 
@@ -30,37 +30,37 @@ A capacidade de R$ 1.525.500 considera 12 turmas lotadas (30 alunos), 3 workshop
 | Turma on-line | 3 turmas por ano, 100 pagantes, R$ 990 | [DADO] |
 | Formato on-line | 4 encontros ao vivo, segundas às 19h30 | [PREMISSA] |
 | Divulgação nacional | R$ 90.000 | [PREMISSA] |
-| Custo direto | 25% da receita de cada turma e workshop | [DADO] |
+| Custo direto | 25% da receita de cada turma presencial e workshop; 5% da receita de cada turma on-line | [DADO] |
 | Facilitador | Eduardo conduz todos os encontros | [PREMISSA] |
 | Pagamento presencial | 3 parcelas iguais | [PREMISSA] |
 
 ## 1. Diagnóstico de partida
 
-- **Lacuna.** Receita 2027 em zero contra R$ 1.453.333 de bruto necessário. Sem dados internos (histórico, funil do CRM, resultado dos workshops, custos), os números são modelo, não projeção calibrada.
+- **Lacuna.** Receita 2027 em zero contra R$ 1.374.133 de bruto necessário. Sem dados internos (histórico, funil do CRM, resultado dos workshops, custos), os números são modelo, não projeção calibrada.
 - **Ativos.** Presença institucional do fundador (Associação Comercial de Mococa e FACESP), workshop de referência em Mogi Guaçu, metodologia DISC e IA aplicada, rotina diária de publicação.
-- **Riscos centrais.** A captação do ciclo 1 precisa começar agora (aulas em 19 a 21/01); a meta exige 93% de ocupação presencial e 100 pagantes por turma on-line; um único facilitador; funis ainda não medidos.
+- **Riscos centrais.** A captação do ciclo 1 precisa começar agora (aulas em 19 a 21/01); a meta exige 86% de ocupação presencial (87% no cenário base) e 100 pagantes por turma on-line; um único facilitador; funis ainda não medidos.
 
 ## 2. Viabilidade da meta
 
 | | Conservador | **Base** | Otimista |
 |---|---|---|---|
-| Alunos por turma (12 turmas) | 22 | 28 | 29 |
-| Matrículas presenciais | 264 | 336 | 348 |
-| Pagantes por workshop (3) | 40 | 50 | 55 |
+| Alunos por turma (12 turmas) | 22 | 26 | 29 |
+| Matrículas presenciais | 264 | 312 | 348 |
+| Pagantes por workshop (3) | 40 | 50 | 56 |
 | Pagantes por turma on-line (3) | 70 | 100 | 130 |
-| Receita bruta | R$ 1.118.700 | R$ 1.453.500 | R$ 1.593.450 |
-| Custo direto (25%) | R$ 279.675 | R$ 363.375 | R$ 398.363 |
+| Receita bruta | R$ 1.118.700 | R$ 1.381.500 | R$ 1.596.420 |
+| Custo direto (25% presencial e workshops, 5% on-line) | R$ 238.095 | R$ 285.975 | R$ 321.885 |
 | Divulgação nacional | R$ 90.000 | R$ 90.000 | R$ 90.000 |
-| **Líquido** | **R$ 749.025** | **R$ 1.000.125** | **R$ 1.105.088** |
-| Diferença para a meta | −R$ 250.975 | +R$ 125 | +R$ 105.088 |
-| Ocupação presencial | 73% | 93% | 97% |
+| **Líquido** | **R$ 790.605** | **R$ 1.005.525** | **R$ 1.184.535** |
+| Diferença para a meta | −R$ 209.395 | +R$ 5.525 | +R$ 184.535 |
+| Ocupação presencial | 73% | 87% | 97% |
 
-**Sensibilidade.** Cada aluno a menos por turma tira R$ 27.000 do líquido. Com 88% de ocupação (26,4 por turma) faltam R$ 43.075. Cada 10 pagantes a mais por turma on-line somam R$ 22.275.
+**Sensibilidade.** A meta exige no mínimo 25,8 alunos por turma (86%); o cenário base usa 26. Cada aluno a menos por turma tira R$ 27.000 do líquido; com 25 por turma faltam R$ 21.475. Cada 10 pagantes a mais por turma on-line somam R$ 28.215.
 
 **Alavancas.**
-1. **4ª turma on-line (recomendada):** +R$ 54.250 de líquido; com 88% de ocupação o líquido chega a R$ 1.011.175.
-2. +10 pagantes por turma on-line: +R$ 22.275.
-3. Ticket presencial de R$ 3.000 para R$ 3.200: +R$ 50.400.
+1. **4ª turma on-line (recomendada):** +R$ 74.050 de líquido; leva o líquido do cenário base a R$ 1.079.575.
+2. +10 pagantes por turma on-line: +R$ 28.215.
+3. Ticket presencial de R$ 3.000 para R$ 3.200: +R$ 46.800.
 4. Custo por pagante on-line de R$ 200 para R$ 150: +R$ 15.000.
 
 ## 3. Análise por cidade
@@ -70,12 +70,12 @@ A capacidade de R$ 1.525.500 considera 12 turmas lotadas (30 alunos), 3 workshop
 | População, Censo 2022 [FONTE] | 67.681 | 92.547 | 52.205 |
 | Empresas ativas | cerca de 12.400 [PREMISSA] | 15.874 a 17.104 [FONTE]; uso 16.600 | 9.685 [FONTE] |
 | Empresas elegíveis (não-MEI, 55%) [PREMISSA] | cerca de 6.820 | cerca de 9.140 | cerca de 5.330 |
-| **Meta de matrículas** | **116** | **116** | **104** |
-| Alunos por turma (4 turmas) | 29 | 29 | 26 |
-| Penetração anual | 1,7% | 1,3% | 2,0% |
+| **Meta de matrículas** | **108** | **108** | **96** |
+| Alunos por turma (4 turmas) | 27 | 27 | 24 |
+| Penetração anual | 1,6% | 1,2% | 1,8% |
 | Workshop | Sáb 20/03 | Sáb 13/11 | Sáb 17/07 |
 
-**Sobre os dados.** Não há contagem oficial. Os números vêm de bases comerciais que divergem em até 8%. Para Mococa só achei empresas com mais de 10 funcionários (2.058), então estimei o total pela média de empresas por mil habitantes das outras duas cidades (cerca de 183). Validar na base de CNPJ da Receita Federal. A meta de 29 por turma em Mococa e São João da Boa Vista equivale a 97% de ocupação.
+**Sobre os dados.** Não há contagem oficial. Os números vêm de bases comerciais que divergem em até 8%. Para Mococa só achei empresas com mais de 10 funcionários (2.058), então estimei o total pela média de empresas por mil habitantes das outras duas cidades (cerca de 183). Validar na base de CNPJ da Receita Federal. A meta de 27 por turma em Mococa e São João da Boa Vista equivale a 90% de ocupação; em São José do Rio Pardo, 24 por turma equivalem a 80%.
 
 Público prioritário: donos e gestores de ME/EPP. Parceiros: associações comerciais, Sebrae, sindicatos e prefeituras. Concorrentes, nomes de parceiros e locais **não foram pesquisados**.
 
@@ -108,22 +108,22 @@ Não há turma presencial de 27/05 a 02/08; esse período recebe a turma on-line
 
 | Etapa | Mococa | S. J. Boa Vista | S. J. Rio Pardo | Total |
 |---|---|---|---|---|
-| Leads | 1.657 | 1.657 | 1.486 | 4.800 |
-| Conversas | 663 | 663 | 594 | 1.920 |
-| Diagnóstico ou aula-experimento | 331 | 331 | 297 | 959 |
-| Matrículas | 116 | 116 | 104 | 336 |
-| Leads sobre as elegíveis | 24% | 18% | 28% | |
+| Leads | 1.543 | 1.543 | 1.371 | 4.457 |
+| Conversas | 617 | 617 | 548 | 1.782 |
+| Diagnóstico ou aula-experimento | 309 | 309 | 274 | 892 |
+| Matrículas | 108 | 108 | 96 | 312 |
+| Leads sobre as elegíveis | 23% | 17% | 26% | |
 
-**Funil on-line nacional (por turma de 100 pagantes) [PREMISSA]:** 3.333 leads (conversão de 3%), custo por lead de R$ 6, custo por pagante de R$ 200 (R$ 20.000 de mídia por turma). Nas 3 turmas: 10.000 leads e 300 pagantes. Receita por turma R$ 99.000, custo direto R$ 24.750, mídia R$ 20.000, líquido R$ 54.250.
+**Funil on-line nacional (por turma de 100 pagantes) [PREMISSA]:** 3.333 leads (conversão de 3%), custo por lead de R$ 6, custo por pagante de R$ 200 (R$ 20.000 de mídia por turma). Nas 3 turmas: 10.000 leads e 300 pagantes. Receita por turma R$ 99.000, custo direto de 5% R$ 4.950, mídia R$ 20.000, líquido R$ 74.050.
 
 - **Presencial.** Canais: associações, indicação, WhatsApp, Instagram, LinkedIn e CRM. Workshop como porta de entrada (cerca de 420 leads por edição, conversão de 12%; 20% dos pagantes viram aluno do ciclo seguinte). Bônus só até a data de corte. Corte de matrícula 7 dias antes do início; alerta com menos de 20 matrículas em D-14; adiamento de 2 semanas se houver menos de 20 em D-3.
 - **On-line.** Ticket de entrada de R$ 990; quem mora perto das três cidades recebe oferta de turma presencial com crédito do valor pago [PREMISSA]; todo pagante entra na lista nacional.
 
 ## 6. Marketing e divulgação nacional
 
-Marketing total: **R$ 151.560** (10,4% do bruto) = R$ 61.560 local (dentro dos 25%) + R$ 90.000 nacional.
+Marketing total: **R$ 139.320** (10,1% do bruto) = R$ 49.320 local (dentro dos 25%) + R$ 90.000 nacional.
 
-**Marketing local.** Turma presencial de 28 alunos: receita R$ 84.000, custo R$ 21.000, composto por facilitação R$ 6.000, material R$ 4.200, local R$ 2.400, taxa de pagamento R$ 2.520, deslocamento R$ 1.500 e **marketing R$ 4.380 (R$ 156 por aluno)** [PREMISSA]. Total: 12 × R$ 4.380 + 3 × R$ 3.000 de workshops = R$ 61.560.
+**Marketing local.** Turma presencial de 26 alunos: receita R$ 78.000, custo R$ 19.500, composto por facilitação R$ 6.000, material R$ 3.900, local R$ 2.400, taxa de pagamento R$ 2.340, deslocamento R$ 1.500 e **marketing R$ 3.360 (R$ 129 por aluno)** [PREMISSA]. Total: 12 × R$ 3.360 + 3 × R$ 3.000 de workshops = R$ 49.320.
 
 **Divulgação nacional: R$ 90.000** [PREMISSA]
 
@@ -145,16 +145,16 @@ Cada campanha de R$ 20.000 (R$ 14.000 de mídia, R$ 3.000 de aulas abertas, R$ 3
 
 | Período | Local | Nacional | Total |
 |---|---|---|---|
-| Nov a dez/2026 | R$ 7.884 | R$ 0 | R$ 7.884 |
-| T1/2027 | R$ 21.396 | R$ 7.500 | R$ 28.896 |
-| T2/2027 | R$ 6.570 | R$ 27.500 | R$ 34.070 |
-| T3/2027 | R$ 22.710 | R$ 37.500 | R$ 60.210 |
+| Nov a dez/2026 | R$ 6.048 | R$ 0 | R$ 6.048 |
+| T1/2027 | R$ 17.112 | R$ 7.500 | R$ 24.612 |
+| T2/2027 | R$ 5.040 | R$ 27.500 | R$ 32.540 |
+| T3/2027 | R$ 18.120 | R$ 37.500 | R$ 55.620 |
 | T4/2027 | R$ 3.000 | R$ 17.500 | R$ 20.500 |
-| **Total** | **R$ 61.560** | **R$ 90.000** | **R$ 151.560** |
+| **Total** | **R$ 49.320** | **R$ 90.000** | **R$ 139.320** |
 
 **Conteúdo.** Segunda: dica de gestão com DISC. Terça: caso de aluno ou bastidor. Quarta: IA aplicada ao negócio. Quinta: chamada para o diagnóstico ou a aula aberta. Sexta: prova social. Toda publicação, anúncio, disparo ou contato com imprensa e parceiros depende de aprovação.
 
-**Indicadores.** 400 leads presenciais por mês; 10.000 leads nacionais no ano; R$ 6 por lead nacional; R$ 200 por pagante on-line; R$ 156 por aluno presencial.
+**Indicadores.** 371 leads presenciais por mês; 10.000 leads nacionais no ano; R$ 6 por lead nacional; R$ 200 por pagante on-line; R$ 129 por aluno presencial.
 
 ## 7. Operação e capacidade
 
@@ -164,43 +164,43 @@ Cada campanha de R$ 20.000 (R$ 14.000 de mídia, R$ 3.000 de aulas abertas, R$ 3
 
 ## 8. Financeiro (cenário base)
 
-Presencial em 3 parcelas iguais a partir do mês de início; workshops e turmas on-line no mês em que acontecem; custo de 25% sobre a receita do mês; divulgação nacional no mês do gasto (simplificação).
+Presencial em 3 parcelas iguais a partir do mês de início; workshops e turmas on-line no mês em que acontecem; custo direto sobre a receita do mês (25% no presencial e nos workshops, 5% no on-line); divulgação nacional no mês do gasto (simplificação).
 
-| Mês | Receita | Custo 25% | Divulgação | Líquido | Acumulado |
+| Mês | Receita | Custo direto | Divulgação | Líquido | Acumulado |
 |---|---|---|---|---|---|
-| Jan | 84.000 | 21.000 | 2.500 | 60.500 | 60.500 |
-| Fev | 84.000 | 21.000 | 2.500 | 60.500 | 121.000 |
-| Mar | 217.500 | 54.375 | 2.500 | 160.625 | 281.625 |
-| Abr | 84.000 | 21.000 | 12.500 | 50.500 | 332.125 |
-| Mai | 84.000 | 21.000 | 12.500 | 50.500 | 382.625 |
-| Jun | 99.000 | 24.750 | 2.500 | 71.750 | 454.375 |
-| Jul | 49.500 | 12.375 | 12.500 | 24.625 | 479.000 |
-| Ago | 84.000 | 21.000 | 12.500 | 50.500 | 529.500 |
-| Set | 183.000 | 45.750 | 12.500 | 124.750 | 654.250 |
-| Out | 168.000 | 42.000 | 12.500 | 113.500 | 767.750 |
-| Nov | 232.500 | 58.125 | 2.500 | 171.875 | 939.625 |
-| Dez | 84.000 | 21.000 | 2.500 | 60.500 | 1.000.125 |
-| **Total** | **1.453.500** | **363.375** | **90.000** | **1.000.125** | |
+| Jan | 78.000 | 19.500 | 2.500 | 56.000 | 56.000 |
+| Fev | 78.000 | 19.500 | 2.500 | 56.000 | 112.000 |
+| Mar | 205.500 | 51.375 | 2.500 | 151.625 | 263.625 |
+| Abr | 78.000 | 19.500 | 12.500 | 46.000 | 309.625 |
+| Mai | 78.000 | 19.500 | 12.500 | 46.000 | 355.625 |
+| Jun | 99.000 | 4.950 | 2.500 | 91.550 | 447.175 |
+| Jul | 49.500 | 12.375 | 12.500 | 24.625 | 471.800 |
+| Ago | 78.000 | 19.500 | 12.500 | 46.000 | 517.800 |
+| Set | 177.000 | 24.450 | 12.500 | 140.050 | 657.850 |
+| Out | 156.000 | 39.000 | 12.500 | 104.500 | 762.350 |
+| Nov | 226.500 | 36.825 | 2.500 | 187.175 | 949.525 |
+| Dez | 78.000 | 19.500 | 2.500 | 56.000 | 1.005.525 |
+| **Total** | **1.381.500** | **285.975** | **90.000** | **1.005.525** | |
 
-**Margem unitária:** turma presencial (28 alunos) R$ 63.000; workshop (50 pagantes) R$ 37.125; turma on-line (100 pagantes) R$ 54.250.
-**Capital de giro:** prever R$ 40.000 a R$ 50.000 no início do ano [PREMISSA], além dos R$ 7.884 de captação em nov e dez de 2026.
+**Margem unitária:** turma presencial (26 alunos) R$ 58.500; workshop (50 pagantes) R$ 37.125; turma on-line (100 pagantes) R$ 74.050.
+**Capital de giro:** prever R$ 40.000 a R$ 50.000 no início do ano [PREMISSA], além dos R$ 6.048 de captação em nov e dez de 2026.
 
 ## 9. Metas e indicadores
 
 | Trimestre | Objetivo | Resultados-chave | Responsável |
 |---|---|---|---|
-| T1 | Abrir o ano com 3 turmas cheias | 84 matrículas no ciclo 1 até 15/01 e 84 no ciclo 2 até 23/03; workshop de Mococa com 50; plataforma on-line testada; líquido acumulado de R$ 281.625 | Diretoria e Comercial |
-| T2 | Lançar a divulgação nacional | Campanha no ar desde 12/04 com custo por lead de até R$ 6; turma on-line 1 com 100 pagantes; líquido acumulado de R$ 454.375 | Marketing e Comercial |
-| T3 | Escalar o on-line e lotar o ciclo 3 | 84 matrículas no ciclo 3; workshop de São José do Rio Pardo com 50; turma on-line 2 com 100; NPS ≥ 70; líquido acumulado de R$ 654.250 | Comercial e Operação |
-| T4 | Fechar a meta | 84 matrículas no ciclo 4; turma on-line 3 com 100; workshop de São João da Boa Vista com 50; líquido de R$ 1.000.000; lista de espera 2028 | Diretoria |
+| T1 | Abrir o ano com 3 turmas cheias | 78 matrículas no ciclo 1 até 15/01 e 78 no ciclo 2 até 23/03; workshop de Mococa com 50; plataforma on-line testada; líquido acumulado de R$ 263.625 | Diretoria e Comercial |
+| T2 | Lançar a divulgação nacional | Campanha no ar desde 12/04 com custo por lead de até R$ 6; turma on-line 1 com 100 pagantes; líquido acumulado de R$ 447.175 | Marketing e Comercial |
+| T3 | Escalar o on-line e lotar o ciclo 3 | 78 matrículas no ciclo 3; workshop de São José do Rio Pardo com 50; turma on-line 2 com 100; NPS ≥ 70; líquido acumulado de R$ 657.850 | Comercial e Operação |
+| T4 | Fechar a meta | 78 matrículas no ciclo 4; turma on-line 3 com 100; workshop de São João da Boa Vista com 50; líquido de R$ 1.000.000; lista de espera 2028 | Diretoria |
 
-**Indicadores mensais:** leads presenciais (400), leads nacionais (10.000 no ano), conversão presencial (7%) e on-line (3%), matrículas (28), ocupação (≥ 93%), pagantes por turma on-line (100), custo por pagante on-line (≤ R$ 200), receita e líquido, ticket médio (R$ 3.000), NPS (≥ 70), retenção presencial (≥ 92%) e presença no on-line (≥ 60%) [PREMISSA]. Os nomes dos responsáveis devem ser designados pela diretoria.
+**Indicadores mensais:** leads presenciais (371), leads nacionais (10.000 no ano), conversão presencial (7%) e on-line (3%), matrículas (26), ocupação (≥ 87%), pagantes por turma on-line (100), custo por pagante on-line (≤ R$ 200), receita e líquido, ticket médio (R$ 3.000), NPS (≥ 70), retenção presencial (≥ 92%) e presença no on-line (≥ 60%) [PREMISSA]. Os nomes dos responsáveis devem ser designados pela diretoria.
 
 ## 10. Riscos e contingência
 
 | Risco | Gatilho | Resposta |
 |---|---|---|
-| Ocupação abaixo de 93% | Média do ciclo 1 abaixo de 28 | Em abril, ativar a 4ª turma on-line e reduzir bônus |
+| Ocupação abaixo de 87% | Média do ciclo 1 abaixo de 26 | Em abril, ativar a 4ª turma on-line e reduzir bônus |
 | Turma on-line abaixo de 100 | Menos de 50 inscritos em D-14 | Estender a campanha por 1 semana; se menos de 70 em D-3, adiar |
 | Custo por lead nacional alto | Acima de R$ 10 por 7 dias | Pausar mídia paga e migrar verba para parcerias, aulas abertas e e-mail |
 | Definição de "líquido" | Diretoria entende líquido como após impostos | Refazer o plano |
@@ -221,8 +221,8 @@ Presencial em 3 parcelas iguais a partir do mês de início; workshops e turmas 
 | Até 20/11/2026 | Produzir página de captação, diagnóstico DISC e material | Marketing | Não |
 | 23/11 a 15/12/2026 | Aulas-experimento e diagnósticos | Comercial e Eduardo | Sim |
 | 01/12/2026 a 15/01/2027 | Captação do ciclo 1 | Marketing | Sim |
-| 15/12/2026 | Checkpoint: 42 matrículas no ciclo 1 | Comercial | Não |
-| 08/01/2027 | Checkpoint: 76 matrículas; decidir adiar 2 semanas | Diretoria | Não |
+| 15/12/2026 | Checkpoint: 39 matrículas no ciclo 1 | Comercial | Não |
+| 08/01/2027 | Checkpoint: 70 matrículas; decidir adiar 2 semanas | Diretoria | Não |
 | 15/01/2027 | Corte de matrícula do ciclo 1 | Comercial | Não |
 | 19 a 21/01/2027 | Início das 3 turmas do ciclo 1 | Operação | Não |
 | 01/02/2027 | Captação do ciclo 2; venda do workshop de Mococa | Comercial | Sim |
@@ -234,9 +234,9 @@ Presencial em 3 parcelas iguais a partir do mês de início; workshops e turmas 
 
 ---
 
-## Confiança: 3 em 10
+## Confiança: 4 em 10
 
-A conta fecha, mas com R$ 125 de folga. Ela depende de 93% de ocupação presencial, 100 pagantes por turma on-line a R$ 200 por pagante e um único facilitador. Nenhum número foi calibrado com dados reais da EdusIA, e a demanda nacional por turmas on-line não foi testada.
+A conta fecha, mas com R$ 5.525 de folga. Ela depende de 87% de ocupação presencial, 100 pagantes por turma on-line a R$ 200 por pagante, de o custo direto do on-line ser mesmo de 5% e de um único facilitador. Nenhum número foi calibrado com dados reais da EdusIA, e a demanda nacional por turmas on-line não foi testada.
 
 **O que falta para chegar a 10:** confirmar a definição de líquido; definir o formato da turma on-line; validar a demanda nacional com um teste de mídia e aula aberta; histórico real de turmas, funil e custos; contagem oficial de empresas; resultado do workshop de Mogi Guaçu; levantamento de concorrentes, parceiros, locais e feriados municipais.
 
